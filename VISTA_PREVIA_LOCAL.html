@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Infobyte - Vista Previa Local</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: white; padding: 40px; }
+        .container { max-width: 1200px; margin: auto; }
+        h1 { color: #00f2fe; text-align: center; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 30px; justify-content: center; }
+        .tab-btn { padding: 10px 20px; background: #1e293b; border: none; color: white; cursor: pointer; border-radius: 5px; }
+        .tab-btn.active { background: #00f2fe; color: #0f172a; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #1e293b; border-radius: 10px; padding: 20px; border-left: 5px solid #00f2fe; }
+        .card h3 { margin-top: 0; color: #00f2fe; }
+        .card p { font-size: 0.9em; color: #cbd5e1; line-height: 1.5; }
+        .btn-copy { background: #334155; border: none; color: white; padding: 8px; width: 100%; margin-top: 10px; cursor: pointer; border-radius: 4px; }
+        .btn-copy:hover { background: #475569; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Infobyte: Contenido de la Semana</h1>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="show('news')">Noticias (28)</button>
+            <button class="tab-btn" onclick="show('quizzes')">Quizzes (28)</button>
+            <button class="tab-btn" onclick="show('spirit')">Frases (7)</button>
+        </div>
+        <div id="content" class="grid"></div>
+    </div>
+
+    <script>
+        let news = [];
+        let quizzes = [];
+        let phrases = [];
+
+        async function load() {
+            try {
+                const r1 = await fetch('posts_content.json');
+                const j1 = await r1.json();
+                news = j1.posts || [];
+                
+                const r2 = await fetch('quizzes_content.json');
+                const j2 = await r2.json();
+                quizzes = j2.quizzes || [];
+
+                const r3 = await fetch('frases_content.json');
+                const j3 = await r3.json();
+                phrases = j3.phrases || [];
+
+                show('news');
+            } catch(e) {
+                document.getElementById('content').innerHTML = "<p>Error cargando archivos. Asegúrate de que posts_content.json esté en esta carpeta.</p>";
+            }
+        }
+
+        function show(type) {
+            const container = document.getElementById('content');
+            container.innerHTML = '';
+            
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            let data = [];
+            if(type==='news') data = news;
+            if(type==='quizzes') data = quizzes;
+            if(type==='spirit') data = phrases;
+
+            data.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'card';
+                const title = item.title || item.headline || "Contenido #" + (i+1);
+                const body = item.postEN || (item.postEN ? item.postEN.body : "Sin texto");
+                
+                div.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${body.substring(0, 200)}...</p>
+                    <button class="btn-copy" onclick="copyText('${i}', '${type}')">📋 Copiar Post Completo</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function copyText(idx, type) {
+            let data = type==='news' ? news : (type==='quizzes' ? quizzes : phrases);
+            let item = data[idx];
+            let text = item.postEN;
+            if(typeof text === 'object') text = text.post_title + "\n\n" + text.post_body;
+            navigator.clipboard.writeText(text);
+            alert("¡Copiado!");
+        }
+
+        load();
+    </script>
+</body>
+</html>
