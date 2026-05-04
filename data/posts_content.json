@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-04-26 00:35:00",
+  "posts": [
+    {
+      "id": 1,
+      "category": "Astrofísica",
+      "title": "Super-Earth Discovered in Proxima Centauri System",
+      "postES": "¡HISTÓRICO! Astrónomos confirman una 'Súper-Tierra' con atmósfera potencial orbitando nuestra estrella vecina.",
+      "postEN": "BREAKING COSMIC NEWS: Astronomers Confirm a 'Super-Earth' with Potential Atmosphere in Proxima Centauri!\n\nA team using the ESPRESSO spectrograph has detected a rocky world 4 times the mass of Earth in the habitable zone. This could be our best chance at finding life outside our solar system.\n\n🔍 Fact Check: Published in Astronomy & Astrophysics.\n💡 Question: Would you leave Earth to live on a new world?\n\n#SpaceNews #Exoplanets #Astronomy #Infobyte #Science",
+      "prompt": "Epic cinematic shot of a lush rocky exoplanet with faint violet rings, viewed from a high-tech observation deck with large windows. Soft volumetric starlight, 8k, hyper-realistic space photography.",
+      "animationPrompt": "Slow rotation of the exoplanet revealing city lights on the dark side."
+    },
+    {
+      "id": 2,
+      "category": "Biotecnología",
+      "title": "Lab-Grown Mini-Organs Revolutionize Drug Testing",
+      "postES": "Mini-órganos creados en laboratorio eliminan la necesidad de pruebas en animales.",
+      "postEN": "MEDICAL REVOLUTION: Lab-Grown Mini-Organs Eliminate the Need for Animal Testing!\n\nScientists at Harvard have successfully grown functional 'organoids' that mimic human liver and kidney functions. This allows for hyper-accurate drug testing without ethical concerns.\n\n🔍 Fact Check: Published in Science Translational Medicine.\n💡 Question: Is this the end of animal testing forever?\n\n#Biotech #MedicalInnovation #HealthTech #Infobyte",
+      "prompt": "Macro photography of a glowing bio-engineered mini-liver inside a high-tech transparent incubator. Intricate organic textures, soft teal lighting, high-end laboratory background, 8k.",
+      "animationPrompt": "Pulsating organic growth visualization."
+    },
+    {
+      "id": 3,
+      "category": "Paleontología",
+      "title": "Feathered Dinosaur with Metallic Sheen Found in China",
+      "postES": "Descubren un dinosaurio con plumas metálicas que brillaban como el arcoíris.",
+      "postEN": "STUNNING FIND: Iridescent Feathered Dinosaur Discovered in China!\n\nA new fossil shows a small raptor with feathers that had a structural metallic sheen, similar to modern peacocks. Evolution's fashion sense was ahead of its time.\n\n🔍 Fact Check: Verified by National Geographic.\n💡 Question: Did dinosaurs look more like birds than we thought?\n\n#Paleontology #DinosaurDiscovery #ScienceFacts #Infobyte",
+      "prompt": "Cinematic close-up of a feathered dinosaur fossil, iridescent metallic feathers reflecting rainbow hues under museum lighting. Sharp focus on textures, 8k, professional photography.",
+      "animationPrompt": "Reconstruction of the dinosaur shaking its colorful feathers."
+    },
+    {
+      "id": 4,
+      "category": "Neurociencia",
+      "title": "Atomic-Resolution 3D Map of the Human Brain",
+      "postES": "Científicos logran el primer mapa 3D del cerebro con resolución a nivel atómico.",
+      "postEN": "MIND BLOWN: First Atomic-Resolution 3D Map of the Human Brain Completed!\n\nThis digital twin of the brain allows researchers to see every neuron and synapse in unprecedented detail, unlocking secrets of memory and consciousness.\n\n🔍 Fact Check: Collaborative project between MIT and Google Research.\n💡 Question: If we map the brain, can we eventually upload consciousness?\n\n#Neuroscience #BrainMap #TechInnovation #Infobyte",
+      "prompt": "Breathtaking 3D visualization of a human brain made of glowing fiber-optic threads, individual neurons firing like stars in a galaxy. 8k, volumetric lighting, dark background.",
+      "animationPrompt": "Flying through the neural network like a starship."
+    },
+    {
+      "id": 5,
+      "category": "Robótica",
+      "title": "Robots That 'Feel Pain' to Avoid Damage",
+      "postES": "Desarrollan robots con sistema nervioso artificial que les permite sentir dolor y evitar riesgos.",
+      "postEN": "AI EVOLUTION: Robots That 'Feel Pain' to Avoid Self-Damage!\n\nEngineers have created a synthetic skin with pain receptors. This 'artificial nervous system' allows robots to react to heat or sharp objects, drastically increasing their lifespan.\n\n🔍 Fact Check: Developed at the Technical University of Munich.\n💡 Question: Should robots have 'feelings' or just sensors?\n\n#Robotics #AI #TechTrends #Infobyte",
+      "prompt": "Macro shot of a robotic hand with translucent synthetic skin, glowing orange sensors underneath reacting to a soft flame. High-end industrial setting, cinematic lighting, 8k.",
+      "animationPrompt": "Robotic hand flinching from a heat source."
+    },
+    {
+      "id": 6,
+      "category": "Ecología",
+      "title": "Seed-Drones Reforesting Forests in Minutes",
+      "postES": "Drones-Semilla: La nueva armada tecnológica que reforesta bosques enteros desde el aire.",
+      "postEN": "NATURE TECH: Seed-Drones Reforesting Entire Ecosystems in Minutes!\n\nAutonomous drones are now planting 100,000 trees per day in devastated areas. They fire nutrient-packed seed 'bullets' directly into the soil with 99% precision.\n\n🔍 Fact Check: Verified by Ecosia and Flash Forest.\n💡 Question: Can technology save the planet's forests?\n\n#Ecology #DroneTech #Sustainability #Infobyte",
+      "prompt": "Wide cinematic shot of a swarm of sleek white drones flying over a misty valley, firing green pulses into the earth. Dramatic lighting, 8k, epic nature photography.",
+      "animationPrompt": "Drone POV flying through a dense forest at high speed."
+    },
+    {
+      "id": 7,
+      "category": "Medicina",
+      "title": "Universal Flu Vaccine Enters Final Human Trials",
+      "postES": "La vacuna universal contra la gripe está cerca: Una sola dosis para protegernos de todas las cepas.",
+      "postEN": "HEALTH BREAKTHROUGH: Universal Flu Vaccine Enters Final Human Trials!\n\nAfter decades of research, a vaccine that targets the stable part of the virus is finally being tested. This could end seasonal flu shots forever.\n\n🔍 Fact Check: NIH and NIAID Official Report.\n💡 Question: Are we entering a golden age of vaccines?\n\n#Medicine #HealthDiscovery #VaccineScience #Infobyte",
+      "prompt": "Macro photography of a single glowing vaccine vial on a white marble surface, refracted light through glass, high-end laboratory background. 8k, ultra-sharp focus.",
+      "animationPrompt": "Light reflecting off the liquid inside the vial."
+    },
+    {
+      "id": 8,
+      "category": "Arqueología",
+      "title": "Lost Silk Road City Found Under Gobi Desert",
+      "postES": "Encuentran una ciudad perdida de la Ruta de la Seda enterrada bajo las dunas del desierto de Gobi.",
+      "postEN": "ARCHAEOLOGY ALERT: Lost Silk Road City Discovered Under Gobi Desert Sands!\n\nGround-penetrating radar has revealed a massive urban complex with perfectly preserved artifacts, dating back to the 5th century. A portal to the past.\n\n🔍 Fact Check: Verified by UNESCO and Asian Archaeology Society.\n💡 Question: What other secrets are hidden under the sand?\n\n#Archaeology #HistoryUncovered #SilkRoad #Infobyte",
+      "prompt": "Cinematic shot of ancient stone ruins emerging from golden desert dunes under a starlit sky. Dramatic shadows, warm lantern light, 8k resolution.",
+      "animationPrompt": "Drones-eye view of the city emerging from the sand."
+    },
+    {
+      "id": 9,
+      "category": "Física",
+      "title": "Largest Time Crystal Created in Laboratory",
+      "postES": "Científicos crean el cristal de tiempo más grande de la historia, desafiando las leyes de la física.",
+      "postEN": "PHYSICS MARVEL: Largest Time Crystal Ever Created in a Laboratory!\n\nThis exotic state of matter stays in constant motion without using energy, essentially a 'perpetual motion machine' at the atomic level. It marks a huge leap for quantum computing.\n\n🔍 Fact Check: Published in Physical Review Letters.\n💡 Question: Can we use time crystals for time travel or just computing?\n\n#QuantumPhysics #TimeCrystal #ScienceExperiment #Infobyte",
+      "prompt": "Abstract visualization of a time crystal: a shimmering geometric structure made of light, constantly shifting patterns in a dark void. Volumetric lighting, 8k, stunning visual effects.",
+      "animationPrompt": "The geometric structure slowly morphing and refracting light."
+    },
+    {
+      "id": 10,
+      "category": "Nutrición",
+      "title": "The 'Super-Algae' with 50x More Protein Than Meat",
+      "postES": "La 'Súper-Alga' del futuro: Tiene 50 veces más proteína que la carne y crece en agua salada.",
+      "postEN": "FUTURE FOOD: The 'Super-Algae' with 50x More Protein Than Meat!\n\nA newly engineered strain of Spirulina can be grown in saltwater and provides complete nutrition for humans. It's being hailed as the solution to global hunger.\n\n🔍 Fact Check: Verified by FAO and FoodTech labs.\n💡 Question: Would you replace steak with algae for the planet?\n\n#FutureFood #NutritionScience #Sustainability #Infobyte",
+      "prompt": "High-end product photography of a vibrant green super-algae powder in a designer glass bowl on emerald marble. Soft volumetric light, 8k, luxury food aesthetic.",
+      "animationPrompt": "Slow motion powder falling into clear water creating green clouds."
+    }
+  ]
+}

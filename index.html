@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFOBYTE - Master Editorial Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <h1 class="glitch" data-text="INFOBYTE">INFOBYTE</h1>
+            <p class="subtitle">AI CONTENT ENGINE | USA MONETIZATION</p>
+        </div>
+        <div class="status-bar">
+            <span id="timestamp">🕒 Cargando...</span>
+            <div class="header-buttons">
+                <button id="tabNews" class="tab-btn active" onclick="switchTab('news')">📰 NEWS</button>
+                <button id="tabQuizzes" class="tab-btn" onclick="switchTab('quizzes')">🧠 QUIZZES</button>
+                <button id="tabPhrases" class="tab-btn" onclick="switchTab('phrases')">✨ SPIRIT</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Infobyte News Dashboard</h2>
+        <div id="newsGrid" class="news-grid">
+            <!-- Cargado dinámicamente -->
+        </div>
+    </main>
+
+    <!-- Modal para lectura profunda -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span id="modalCategory" class="category-tag">Category</span>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <h2 id="modalTitle">Título de la Noticia</h2>
+            <div id="modalBody" class="modal-body">
+                <!-- Contenido -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificaciones Toast -->
+    <div id="toast" class="toast">Mensaje de sistema</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

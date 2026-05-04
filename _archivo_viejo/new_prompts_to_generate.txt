@@ -1,0 +1,10 @@
+[ID 1]: Imagen viral: una figura de dinosaurio con un ángulo lateral y contraste entre la piel rugosa y el entorno natural
+[ID 2]: Imagen viral: una tormenta eléctrica con ángulo vertical y contraste entre la luz y las sombras
+[ID 3]: Imagen viral: una estructura molecular con ángulo lateral y contraste entre los componentes
+[ID 4]: Imagen viral: una estrella con ángulo vertical y contraste entre la luz y las sombras
+[ID 5]: Imagen viral: una mano sosteniendo una moneda con ángulo lateral y contraste entre la luz y las sombras
+[ID 6]: Imagen viral: un dispositivo electrónico con ángulo lateral y contraste entre la luz y las sombras
+[ID 7]: Imagen viral: una flor con ángulo lateral y contraste entre la luz y las sombras
+[ID 8]: Imagen viral: una prenda de vestir con ángulo lateral y contraste entre la luz y las sombras
+[ID 9]: Imagen viral: un modelo de pasarela con ángulo lateral y contraste entre la luz y las sombras
+[ID 10]: Imagen viral: una ballena con ángulo vertical y contraste entre la luz y las sombras

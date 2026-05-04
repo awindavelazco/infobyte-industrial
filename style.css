@@ -1,0 +1,92 @@
+/* facebook_post_assistant/style.css - Premium Modal Update */
+:root {
+    --bg-dark: #0a0a0c;
+    --card-bg: #111114;
+    --accent: #00c2c7;
+    --accent-glow: rgba(0, 194, 199, 0.4);
+    --text-main: #ffffff;
+    --text-dim: #88888b;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background: var(--bg-dark); font-family: 'Outfit', sans-serif; color: var(--text-main); overflow-x: hidden; }
+
+header { height: 80px; background: rgba(18, 18, 21, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 1000; }
+.logo { font-size: 20px; font-weight: 900; letter-spacing: 2px; color: var(--accent); }
+.status-badge { background: rgba(0, 255, 0, 0.1); color: #00ff00; padding: 5px 15px; border-radius: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+
+main { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+.section-header { margin-bottom: 30px; }
+.section-title { font-size: 32px; font-weight: 800; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+
+.news-card { background: var(--card-bg); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); padding: 25px; transition: 0.3s; display: flex; flex-direction: column; }
+.news-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.category-tag { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 15px; }
+.card-title { font-size: 18px; margin-bottom: 20px; line-height: 1.4; }
+.card-img-container { width: 100%; height: 200px; overflow: hidden; border-radius: 12px; margin-bottom: 15px; background: #000; }
+.card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.news-card:hover .card-img { transform: scale(1.1); }
+
+.btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+.btn { width: 100%; padding: 12px; border-radius: 12px; border: none; cursor: pointer; font-weight: 700; font-family: inherit; font-size: 13px; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+
+.btn-read { background: var(--accent); color: #000; }
+.btn-copy-en { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+.btn-prompt { background: rgba(157, 0, 255, 0.1); color: #9d00ff; border: 1px solid rgba(157, 0, 255, 0.3); }
+
+/* --- MODAL (OVERLAY DE LECTURA) --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+    display: none; justify-content: center; align-items: center;
+    z-index: 2000; padding: 20px;
+}
+.modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-content {
+    background: #18181b; width: 100%; max-width: 600px;
+    max-height: 90vh; border-radius: 24px;
+    border: 1px solid var(--accent); padding: 40px;
+    overflow-y: auto; position: relative;
+    box-shadow: 0 0 50px rgba(0, 194, 199, 0.2);
+}
+
+.modal-title { font-size: 24px; font-weight: 900; margin-bottom: 20px; color: var(--accent); }
+.modal-body { font-size: 16px; line-height: 1.8; color: #ccc; white-space: pre-wrap; margin-bottom: 30px; }
+.close-modal { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 24px; color: var(--text-dim); cursor: pointer; }
+
+/* Toast */
+.toast.active { transform: translateY(0); }
+
+/* TABS STYLING */
+.tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    padding: 12px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-family: 'Outfit', sans-serif;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active {
+    background: #00f2fe;
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    border-color: #00f2fe;
+}
