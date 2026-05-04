@@ -193,6 +193,18 @@ class InfobyteEngine:
            'Mind-Blowing News', 'Discover More', or placeholder text like 'MAX 12 WORDS'.
            Example for 'Neuroplasticity': "Your Brain Can Rewire Itself. Here's How."
 
+        4. HOOK DIVERSITY (STRICT): PROHIBITED to start multiple posts with the same phrase 
+           (e.g., "Ever wondered", "Did you know", "Imagine a world"). 
+           Each of the 28 posts MUST have a unique opening style:
+           - Style A: Interrogative (Question)
+           - Style B: Breaking News (Urgent update)
+           - Style C: Fact-based (Astonishing data)
+           - Style D: Narrative (Short story/scenario)
+           
+        5. SPANISH VARIETY: PROHIBIDO empezar con "¿Alguna vez te has preguntado...?" en más de 2 
+           noticias de todo el batch. Si repites ganchos, el Auditor de Calidad rechazará el trabajo.
+
+
         Return EXACTLY this JSON (no extra text):
         {{
           "post_title": "{scout_data['title']}",

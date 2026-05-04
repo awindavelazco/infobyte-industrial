@@ -179,6 +179,17 @@ class InfobyteAuditor:
                     f"Posible desconexion imagen-contenido."
                 )
 
+        # ── REGLA 7: VARIEDAD DE GANCHOS (ANTI-REPETICIÓN) ─────────────
+        all_hooks_es = [p.get('postES', '')[:40].lower() for p in posts]
+        for start_phrase in set(all_hooks_es):
+            count = all_hooks_es.count(start_phrase)
+            if count > 2 and len(start_phrase.strip()) > 5:
+                self.report.append(
+                    f"ERROR CRITICO: REPETICION DETECTADA. La frase '{start_phrase.strip()}...' "
+                    f"se repite en {count} noticias. El auditor RECHAZA este batch por falta de variedad."
+                )
+
+
         if modified:
             with open(self.files['news'], 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
