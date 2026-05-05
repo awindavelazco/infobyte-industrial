@@ -4,6 +4,36 @@
 
 ---
 
+## DIRECTIVA PRIMA — DOCUMENTACION EN TIEMPO REAL
+Esta regla esta por encima de todas las demas:
+
+1. CADA VEZ que ocurra un error durante el desarrollo, sin importar que tan pequenio
+   sea, debe documentarse en esta bitacora INMEDIATAMENTE, antes de continuar con
+   cualquier otra tarea.
+
+2. No se permite terminar una sesion de trabajo sin actualizar esta bitacora si
+   hubo algun error, comportamiento inesperado o decision de diseno importante.
+
+3. El formato minimo obligatorio para cada entrada es:
+   - Numero secuencial (ERROR #XXX)
+   - Fecha
+   - Archivo culpable
+   - Descripcion del error
+   - Sintoma visible para el usuario
+   - Fix aplicado
+   - Regla permanente para no repetirlo
+
+4. Despues de documentar, hacer commit con mensaje:
+   "bitacora: add ERROR #XXX - descripcion breve"
+
+5. Esta bitacora es el PRIMER archivo que debe leer la IA al iniciar cualquier
+   sesion de trabajo en este proyecto. Sin excepcion.
+
+RAZON: La IA no tiene memoria entre sesiones. Esta bitacora ES su memoria.
+Si no se documenta aqui, el error se repetira.
+
+---
+
 ## REGLA GENERAL
 Antes de tocar cualquier archivo de este proyecto, leer esta bitacora completa.
 Cada error aqui documentado ya costo tiempo y cuota de API. No repetirlo.
