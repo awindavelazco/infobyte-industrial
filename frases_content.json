@@ -1,1 +1,60 @@
-{"phrases": []}
+{
+  "phrases": [
+    {
+      "id": 1,
+      "post_title": "The Silent Language of Nature",
+      "hook_text": "Listen to the silence, it has so much to say.",
+      "postEN": "The forest breathes in silence. Every leaf, every drop of dew, tells a story of patience and resilience. #NatureReflections #InnerPeace #Spirituality",
+      "postES": "El bosque respira en silencio. Cada hoja, cada gota de rocío, cuenta una historia de paciencia y resiliencia. #ReflexionesNaturaleza #PazInterior #Espiritualidad",
+      "visual_prompt": "Cinematic shot of a misty forest at sunrise, soft golden light filtering through ancient trees, hyper-realistic, 8k."
+    },
+    {
+      "id": 2,
+      "post_title": "The Art of Letting Go",
+      "hook_text": "Surrender is not defeat; it is the ultimate victory.",
+      "postEN": "Like autumn leaves, we must learn to fall gracefully to make room for new growth. #LettingGo #Healing #Zen",
+      "postES": "Como las hojas de otoño, debemos aprender a caer con gracia para dar paso a un nuevo crecimiento. #Soltar #Sanación #Zen",
+      "visual_prompt": "Abstract art of colorful autumn leaves floating on a calm lake, ripples of water, serene atmosphere, 8k."
+    },
+    {
+      "id": 3,
+      "post_title": "The Power of Presence",
+      "hook_text": "Don't miss the now by chasing the next.",
+      "postEN": "Peace is not found in the future, but in the breath you are taking right now. #Mindfulness #Presence #DeepPeace",
+      "postES": "La paz no se encuentra en el futuro, sino en el aliento que estás tomando ahora mismo. #Consciencia #Presencia #PazProfunda",
+      "visual_prompt": "Close-up of a Zen stone stack by a flowing river, soft focus background, tranquil lighting, high detail."
+    },
+    {
+      "id": 4,
+      "post_title": "Resilience of the Soul",
+      "hook_text": "A diamond is just a piece of charcoal that handled stress exceptionally well.",
+      "postEN": "Your struggles are the pressure that creates your light. Keep shining. #Resilience #SoulStrength #Inspiration",
+      "postES": "Tus luchas son la presión que crea tu luz. Sigue brillando. #Resiliencia #FuerzaDelAlma #Inspiración",
+      "visual_prompt": "A single glowing flower growing through a crack in a dark urban concrete wall, cinematic contrast, 8k."
+    },
+    {
+      "id": 5,
+      "post_title": "The Mirror of the Mind",
+      "hook_text": "The world is a reflection of your inner state.",
+      "postEN": "To change the world outside, first calm the storm inside. #InnerReflection #SelfCare #Balance",
+      "postES": "Para cambiar el mundo exterior, primero calma la tormenta interior. #ReflexiónInterna #Autocuidado #Equilibrio",
+      "visual_prompt": "A perfectly still mountain lake reflecting a starry night sky, deep blues and purples, ethereal atmosphere."
+    },
+    {
+      "id": 6,
+      "post_title": "The Flow of Life",
+      "hook_text": "Be like water: soft yet capable of moving mountains.",
+      "postEN": "Do not fight the current. Adapt, flow, and find your way around the obstacles. #LifeFlow #Adaptability #Wisdom",
+      "postES": "No luches contra la corriente. Adáptate, fluye y encuentra tu camino rodeando los obstáculos. #Fluir #Adaptabilidad #Sabiduría",
+      "visual_prompt": "Breathtaking waterfall in a tropical jungle, vibrant greens, silky water movement, professional photography."
+    },
+    {
+      "id": 7,
+      "post_title": "Infinite Gratitude",
+      "hook_text": "Gratitude is the bridge to abundance.",
+      "postEN": "When you focus on what you have, the universe gives you more. #Gratitude #Abundance #Blessed",
+      "postES": "Cuando te enfocas en lo que tienes, el universo te da más. #Gratitud #Abundancia #Bendiciones",
+      "visual_prompt": "Hands holding a warm glowing light in the darkness, soft focus, warm heart-centered atmosphere."
+    }
+  ]
+}
