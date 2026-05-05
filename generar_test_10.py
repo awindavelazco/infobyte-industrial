@@ -42,20 +42,26 @@ def run_test_10():
     
     # 1. SPIRIT
     print("\n>>> FASE 1: Spirit (7)...")
-    prompt_spirit = "Generate 7 deep Zen reflections. JSON: {'phrases': [{'id':1, 'post_title':'', 'hook_text':'', 'postEN':'', 'postES':'', 'visual_prompt':''}]}"
+    prompt_spirit = "Generate 7 deep Zen reflections. Return ONLY valid JSON with this exact structure: {\"phrases\": [{\"id\":1, \"post_title\":\"...\", \"hook_text\":\"...\", \"postEN\":\"...\", \"postES\":\"...\", \"visual_prompt\":\"...\"}]}"
     data = safe_generate(engine, prompt_spirit)
-    if data:
+    if data and isinstance(data.get('phrases'), list) and len(data['phrases']) > 0:
         with open('frases_content.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
+        print(f"    ✅ OK — {len(data['phrases'])} frases escritas.")
+    else:
+        print("    ❌ SCHEMA INVÁLIDO — frases_content.json NO sobreescrito. Datos anteriores conservados.")
     
     # 2. QUIZZES
     print("\n>>> FASE 2: Quizzes (10)...")
-    prompt_quizzes = "Generate 10 scientific quizzes. JSON: {'quizzes': [{'headline':'', 'options':[], 'postEN':'', 'postES':'', 'visual_prompt':''}]}"
+    prompt_quizzes = "Generate 10 viral science quizzes for Facebook. Return ONLY valid JSON with this exact structure: {\"quizzes\": [{\"id\":1, \"topic\":\"...\", \"headline\":\"...\", \"hook_question\":\"...\", \"postEN\":\"...\", \"postES\":\"...\", \"visual_prompt\":\"...\"}]}"
     data = safe_generate(engine, prompt_quizzes)
-    if data:
+    if data and isinstance(data.get('quizzes'), list) and len(data['quizzes']) > 0:
         for i, q in enumerate(data['quizzes']): q['id'] = i + 1
         with open('quizzes_content.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
+        print(f"    ✅ OK — {len(data['quizzes'])} quizzes escritos.")
+    else:
+        print("    ❌ SCHEMA INVÁLIDO — quizzes_content.json NO sobreescrito. Datos anteriores conservados.")
             
     # 3. NOTICIAS
     print("\n>>> FASE 3: Noticias (10)...")
