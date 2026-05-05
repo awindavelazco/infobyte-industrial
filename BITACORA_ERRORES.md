@@ -206,4 +206,30 @@ Cuando se descubra un error nuevo:
 3. Hacer commit con mensaje: "bitacora: add ERROR #XXX - descripcion breve"
 
 ---
+
+## ERROR #007 — PUSH A RAMA INCORRECTA (gh-pages vs main)
+**Fecha:** 2026-05-05
+**Causa:** Todos los commits con datos se hicieron a la rama "gh-pages" pero
+GitHub Pages esta configurado para servir desde la rama "main". La web leia
+siempre el "main" desactualizado con archivos vacios.
+
+**Sintoma visible:** Quizzes y Spirit vacios en la web aunque git log mostraba
+los datos en el historial de gh-pages.
+
+**Verificacion que confirma el problema:**
+  git show origin/main:quizzes_content.json  → devuelve {"quizzes": []}
+  git show origin/gh-pages:quizzes_content.json → devuelve 10 quizzes
+
+**Fix aplicado:**
+  git push origin gh-pages:main
+  (Sincroniza gh-pages hacia main de un solo comando)
+
+**REGLA PERMANENTE:**
+- SIEMPRE verificar que rama sirve GitHub Pages ANTES de hacer push.
+- Comando de verificacion: leer github.com/[repo]/settings/pages
+- En este proyecto GitHub Pages sirve desde: RAMA "main"
+- El comando correcto de push es siempre: git push origin main
+- Si se esta en rama gh-pages local, usar: git push origin gh-pages:main
+
+---
 FIN DE BITACORA
