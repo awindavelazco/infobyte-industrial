@@ -7,14 +7,26 @@ let currentView = 'news';
 let activeIndex = -1;
 
 async function loadData() {
+    // Mostrar fecha y hora real de carga
+    const now = new Date();
+    const dias = ['Dom','Lun','Mar','Mie','Jue','Vie','Sab'];
+    const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    const diaSemana = dias[now.getDay()];
+    const dia = String(now.getDate()).padStart(2,'0');
+    const mes = meses[now.getMonth()];
+    const anio = now.getFullYear();
+    const hora = String(now.getHours()).padStart(2,'0');
+    const minutos = String(now.getMinutes()).padStart(2,'0');
+    const fechaFormateada = `${diaSemana} ${dia} ${mes} ${anio} | ${hora}:${minutos}`;
+
     try {
         const newsResponse = await fetch('posts_content.json?t=' + Date.now());
         const newsJson = await newsResponse.json();
         newsData = newsJson.posts || [];
-        document.getElementById('timestamp').innerText = `🕒 ACTUALIZADO: ${newsJson.generated_at || 'Hoy'}`;
+        document.getElementById('timestamp').innerText = `Actualizado: ${fechaFormateada} | ${newsData.length} noticias`;
     } catch (e) {
         console.warn("No se pudo cargar posts_content.json:", e);
-        document.getElementById('timestamp').innerText = "⚠️ Noticias no disponibles";
+        document.getElementById('timestamp').innerText = `Error de carga | ${fechaFormateada}`;
     }
 
     try {
