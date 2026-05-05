@@ -1,7 +1,16 @@
-# BITACORA DE ERRORES — INFOBYTE INDUSTRIAL
+# BITACORA DE ERRORES Y ESTADO DEL SISTEMA — INFOBYTE INDUSTRIAL
 # LECTURA OBLIGATORIA AL INICIO DE CADA SESION DE DESARROLLO
 # Ultima actualizacion: 2026-05-04
 
+---
+## ESTADO ACTUAL DEL SISTEMA (RESUMEN PARA NUEVO CHAT)
+**Situacion:** El sistema esta FUNCIONANDO PERFECTAMENTE.
+- **Backend (Python):** `generar_test_10.py` y `generar_nueva_semana.py` estan operativos y blindados.
+- **Generacion AI:** Usan `genai` (Gemini 2.0 Flash) con una rotacion de 6 llaves. Tienen un **Fallback a Ollama Local** si las llaves se agotan (Error 429), para no detener la produccion.
+- **Validacion JSON:** Todos los scripts verifican que el schema de respuesta sea correcto ANTES de escribir al disco. Si Gemini devuelve basura, el archivo no se sobreescribe. Se anadio un timestamp `generated_at`.
+- **Frontend (Dashboard JS):** El archivo `script.js` carga los JSON correctamente. El Toast de copiado fue arreglado (`opacity: 0` por defecto).
+- **Despliegue:** Se empuja a la rama `main` para que GitHub Pages lo sirva. (Antes habia un error empujando a `gh-pages` mientras Pages leia de `main`).
+- **Backup:** Se creo un tag en git `v3.0-stable` y un archivo `backup_infobyte_v3_funcionando.zip`.
 ---
 
 ## DIRECTIVA PRIMA — DOCUMENTACION EN TIEMPO REAL
