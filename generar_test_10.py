@@ -2,6 +2,7 @@
 import os
 import json
 import time
+from datetime import datetime
 from google import genai
 from google.genai import types
 from engine_agentes import InfobyteEngine
@@ -45,11 +46,12 @@ def run_test_10():
     prompt_spirit = "Generate 7 deep Zen reflections. Return ONLY valid JSON with this exact structure: {\"phrases\": [{\"id\":1, \"post_title\":\"...\", \"hook_text\":\"...\", \"postEN\":\"...\", \"postES\":\"...\", \"visual_prompt\":\"...\"}]}"
     data = safe_generate(engine, prompt_spirit)
     if data and isinstance(data.get('phrases'), list) and len(data['phrases']) > 0:
+        data['generated_at'] = datetime.now().strftime('%d %b %Y %H:%M')
         with open('frases_content.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        print(f"    ✅ OK — {len(data['phrases'])} frases escritas.")
+        print(f"    OK - {len(data['phrases'])} frases escritas.")
     else:
-        print("    ❌ SCHEMA INVÁLIDO — frases_content.json NO sobreescrito. Datos anteriores conservados.")
+        print("    ERROR SCHEMA - frases_content.json NO sobreescrito. Datos anteriores conservados.")
     
     # 2. QUIZZES
     print("\n>>> FASE 2: Quizzes (10)...")
@@ -57,11 +59,12 @@ def run_test_10():
     data = safe_generate(engine, prompt_quizzes)
     if data and isinstance(data.get('quizzes'), list) and len(data['quizzes']) > 0:
         for i, q in enumerate(data['quizzes']): q['id'] = i + 1
+        data['generated_at'] = datetime.now().strftime('%d %b %Y %H:%M')
         with open('quizzes_content.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        print(f"    ✅ OK — {len(data['quizzes'])} quizzes escritos.")
+        print(f"    OK - {len(data['quizzes'])} quizzes escritos.")
     else:
-        print("    ❌ SCHEMA INVÁLIDO — quizzes_content.json NO sobreescrito. Datos anteriores conservados.")
+        print("    ERROR SCHEMA - quizzes_content.json NO sobreescrito. Datos anteriores conservados.")
             
     # 3. NOTICIAS
     print("\n>>> FASE 3: Noticias (10)...")
@@ -89,7 +92,10 @@ def run_test_10():
             noticias.append(post)
             append_history("historico_noticias.txt", scout['title'])
             with open('posts_content.json', 'w', encoding='utf-8') as f:
-                json.dump({"posts": noticias}, f, indent=2, ensure_ascii=False)
+                json.dump({
+                    "generated_at": datetime.now().strftime('%d %b %Y %H:%M'),
+                    "posts": noticias
+                }, f, indent=2, ensure_ascii=False)
             time.sleep(2) # Pausa anti-429
         except Exception as e:
             print(f"❌ Error en noticia {i+1}: {e}")
