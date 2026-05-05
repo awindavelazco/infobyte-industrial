@@ -162,4 +162,48 @@ Cuando se descubra un error nuevo:
 3. Hacer commit con mensaje: "bitacora: add ERROR #XXX - descripcion breve"
 
 ---
+
+## ERROR #006 — COMMIT PARCIAL DEJA ARCHIVOS JSON FUERA DE GITHUB PAGES
+**Fecha:** 2026-05-04
+**Causa:** Se hicieron commits individuales (solo style.css, solo BITACORA.md) sin
+incluir los archivos de datos (quizzes_content.json, frases_content.json).
+GitHub Pages siempre sirve el ULTIMO commit. Si los JSON no estan en ese commit,
+la web los ve vacios aunque existan localmente.
+
+**Sintoma visible:** Quizzes y Spirit en blanco en la web. Localmente los archivos
+tienen contenido correcto.
+
+**Fix aplicado:** git add con todos los archivos de datos incluidos antes de push.
+
+**REGLA PERMANENTE:**
+- Antes de cualquier git push, verificar con "git status" que los 3 archivos de
+  datos esten incluidos si hubo cambios en ellos:
+    * quizzes_content.json
+    * frases_content.json
+    * posts_content.json
+- NUNCA hacer push de solo CSS o solo scripts sin verificar el estado de los JSON.
+- Comando de verificacion obligatorio antes de push:
+  git diff --stat HEAD (debe mostrar los archivos de datos si cambiaron)
+
+---
+
+## ARQUITECTURA DE ARCHIVOS CRITICOS
+| Archivo               | Clave JSON esperada | Quien la lee     |
+|-----------------------|---------------------|------------------|
+| posts_content.json    | "posts"             | script.js        |
+| quizzes_content.json  | "quizzes"           | script.js        |
+| frases_content.json   | "phrases"           | script.js        |
+
+NOTA: Si la clave raiz no coincide exactamente con lo de arriba, el Dashboard
+mostrara vacio. Gemini a veces devuelve "quiz", "phrase", "data" — SIEMPRE validar.
+
+---
+
+## COMO ACTUALIZAR ESTA BITACORA
+Cuando se descubra un error nuevo:
+1. Agregar entrada con numero secuencial (ERROR #006, etc.)
+2. Documentar: Fecha, Archivo culpable, Descripcion, Sintoma, Fix, Regla permanente.
+3. Hacer commit con mensaje: "bitacora: add ERROR #XXX - descripcion breve"
+
+---
 FIN DE BITACORA
