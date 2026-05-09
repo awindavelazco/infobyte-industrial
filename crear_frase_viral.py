@@ -15,15 +15,15 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class GeniusJournalEngine:
     def __init__(self):
-        # POOL DE LLAVES
-        self.api_keys = [
-            "AIzaSyAq982rk4PvL9q243K2YW_ZhP_xPMtCItA",
-            "AIzaSyCc3NuyF1T7x-Nz0b-1m_97dmK6tUWaWcA",
-            "AIzaSyBgjWfq7gHd0PA2sciACVxL4TLqLPiDdcc",
-            "AIzaSyD26wgoSSdeu-Z2DYBRX9iHPUe7e1O4zB0",
-            "AIzaSyBNxZIit7s6tu8MRkvtuANPxGb1O0fk9c8",
-            "AIzaSyDJcSqd44cIIiz-oqr3wIMmW6bazwcfhOM"
-        ]
+        # POOL DE LLAVES (Leídas de api_keys.json de forma segura)
+        self.api_keys = []
+        keys_path = os.path.join(BASE_DIR, "api_keys.json")
+        if os.path.exists(keys_path):
+            with open(keys_path, "r", encoding="utf-8") as f:
+                self.api_keys = json.load(f).get("news_keys", [])
+        
+        if not self.api_keys:
+            self.api_keys = ["LLAVE_DE_RESPALDO_AQUI"]
         self.current_key_index = 0
 
     def get_active_key(self):
@@ -68,25 +68,29 @@ class GeniusJournalEngine:
     def generate_phrase(self):
         print("[CEREBRO] Redactando frase viral con Gemini...")
         prompt_instruction = f"""
-        You are an expert psychologist and persuasive copywriter. Write a deep, reflective post for 'Apuntes del Alma' (Soul Notes).
-        
+        You are an expert neuroscientist, psychologist, and viral copywriter creating content for 'Infobyte' on Facebook (US English audience, ages 30-55).
+
+        GOAL: Create a post that STOPS THE SCROLL and drives comments and shares.
+
         STRICT RULES:
-        1. VOICE: Empathetic, luxury, and deeply insightful (US English).
-        2. VIRAL ELEMENTS: Use emotive emojis (✨, 🧘‍♂️, 💖) and at least 5 inspirational hashtags (e.g., #SoulWisdom, #Mindfulness, #InnerPeace).
-        3. INTERACTION: Every post MUST end with a deep question that invites the reader to reflect and comment.
-        
-        STRUCTURE:
-        {{ 
-           "hook_quote": "English quote max 12 words", 
-           "hook_instructions": ["Step 1", "Step 2", "Step 3"], 
-           "hook_action": "ACT NOW",
-           "post_title": "TITLE IN ENGLISH", 
-           "post_reframe": "...", 
-           "post_science": "Neuroscience behind this feeling...",
-           "post_psychology": "Psychological depth...", 
-           "post_action_plan": "1...\\n2...",
-           "postEN": "Full viral post including Emojis, Hashtags, and the Interaction Question.",
-           "postES": "Traducción COMPLETA Y EXACTA del postEN al español (todo el post, no un resumen)."
+        1. CURIOSITY GAP (CRITICAL): The first 2 lines of 'postEN' (visible before 'See More') MUST be a shocking fact or polarizing question that creates irresistible curiosity. Example: "Your brain is literally deleting memories right now. And you don't even know it's happening."
+        2. SCIENCE AUTHORITY: Reference a real scientific institution (Harvard, NIH, Stanford, Mayo Clinic) or a recognized study to build trust.
+        3. RELATABLE PAIN POINT: Address a common daily struggle (fatigue, stress, memory, relationships, sleep, diet, loneliness). Make the reader feel 'this is about ME'.
+        4. VOICE: Conversational US English. Not academic. Like a brilliant friend explaining science.
+        5. INTERACTION: The post MUST end with a binary or personal question that forces a response. Example: 'Do you feel this too? Tell me YES or NO below.' or 'Tag someone who NEEDS to read this.'
+        6. VIRAL ELEMENTS: 3-5 relevant emojis and 5 power hashtags (#BrainHealth, #MindsetShift, #ScienceFacts, #MentalHealth, #Psychology).
+
+        TOPICS POOL (choose one per post): Brain science, Sleep & memory, Stress & cortisol, Gut-brain connection, Loneliness & psychology, Hidden symptoms of burnout, Emotional intelligence, The science of habits.
+
+        STRUCTURE EXACTLY LIKE THIS JSON:
+        {{
+           "hook_quote": "The shocking first sentence / curiosity gap (max 15 words)",
+           "post_title": "TITLE IN ENGLISH (for internal reference)",
+           "post_science": "The science/study backing this post (1-2 sentences).",
+           "post_psychology": "The psychological or human angle that makes this relatable.",
+           "post_action_plan": "3 short, actionable takeaways the reader can apply TODAY.",
+           "postEN": "FULL viral post: Line 1-2 = Curiosity Gap. Then science. Then relatable story. Then action plan. Then interaction question. Emojis and hashtags at the end.",
+           "postES": "Traduccion COMPLETA Y EXACTA del postEN al espanol."
         }}
         """
         
@@ -98,7 +102,7 @@ class GeniusJournalEngine:
                 client = genai.Client(api_key=self.get_active_key())
                 
                 response = client.models.generate_content(
-                    model='gemini-2.5-flash',
+                    model='gemini-2.0-flash',
                     config=types.GenerateContentConfig(response_mime_type="application/json"),
                     contents=prompt_instruction
                 )
@@ -123,15 +127,23 @@ class GeniusJournalEngine:
         return result
 
     def create_visual_prompt(self, phrase_data):
-        print(f"[ARTE] Diseñando visual PREMIUM para el alma...")
-        prompt_instruction = f"""Eres el Director de Arte de una revista de psicología de lujo.
-Crea un prompt de imagen para: "{phrase_data.get('hook_quote', '')}"
-INSTRUCCIONES ZEN:
-1. Estilo 'Zen Minimalism', Fotografía macro o paisajes etéreos.
-2. Iluminación Chiaroscuro o Golden Hour. Lente 35mm.
-3. NO texto, NO marcas de agua.
-4. El prompt debe ser en inglés (80 palabras) y terminar con: "no text, no letters, no watermark, clean image only."
-Responde solo JSON: {{"image_prompt": "..."}}"""
+        print(f"[ARTE] Disenando visual PREMIUM para Facebook...")
+        topic = phrase_data.get('post_title', '')
+        hook = phrase_data.get('hook_quote', '')
+        prompt_instruction = f"""You are a top-tier Art Director for a viral US science & psychology Facebook page.
+
+Create an image prompt for this post topic: "{hook} — {topic}"
+
+CRITICAL IMAGE RULES (based on what stops the scroll on Facebook USA):
+1. STYLE: Photorealistic, cinematic photography (NOT illustration, NOT abstract art, NOT fractals, NOT nebulas).
+2. SUBJECT: Show a REAL PERSON (or 2 people) in a recognizable, emotionally relatable everyday situation. Examples: a tired person staring at their phone at 3am, a woman smiling alone with coffee, a man holding his head at a desk, a couple sitting apart looking down at their phones.
+3. EMOTION: The image must convey one powerful emotion that connects to the post (fatigue, hope, loneliness, breakthrough, peace, stress).
+4. LIGHTING: Cinematic. Golden hour, dramatic window light, or soft morning light. NO flat lighting.
+5. CAMERA: Specify angle. Close-up on face OR medium shot OR over-the-shoulder. 35mm or 85mm lens.
+6. NO text, NO logos, NO watermarks, NO abstract elements. Clean, real, emotional photography only.
+7. The prompt MUST be in English, ~70 words, and end with: "photorealistic, cinematic, 4K, no text, no watermark."
+
+Respond ONLY with this JSON: {{"image_prompt": "..."}}"""
         
         attempts = 0
         while attempts < len(self.api_keys):
@@ -141,7 +153,7 @@ Responde solo JSON: {{"image_prompt": "..."}}"""
                 client = genai.Client(api_key=self.get_active_key())
                 
                 response = client.models.generate_content(
-                    model='gemini-2.5-flash',
+                    model='gemini-2.0-flash',
                     config=types.GenerateContentConfig(response_mime_type="application/json"),
                     contents=prompt_instruction
                 )
@@ -197,7 +209,7 @@ Responde solo JSON: {{"image_prompt": "..."}}"""
 def main():
     engine = GeniusJournalEngine()
     final_data = []
-    count = 28
+    count = 7  # Lote semanal: 7 posts (1 por dia, segun calendario EST)
     
     for i in range(count):
         p = engine.generate_phrase()

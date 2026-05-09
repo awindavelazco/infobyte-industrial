@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-05-09 13:47:03",
+  "format": "4x8s_continuity_flow",
+  "total_duration_seconds": 32,
+  "clips_per_video": 4,
+  "videos": [
+    {
+      "topic_es": "¿Por qué tu cerebro te hace olvidar tus sueños?",
+      "video_plan_es": "El video explora cómo el subconsciente puede influir en la capacidad de recordar los sueños. La historia sigue a una persona que lucha por recordar sus pesadillas y descubre que su miedo al fracaso puede estar impedido.",
+      "character_description_en": "A 35-year-old woman with dark hair, wearing a white shirt, in a warmly lit modern apartment.",
+      "clip_1_hook_en": "THE HOOK (0-8s): Close-up on face. The woman wakes up from a nightmare, looking shocked and scared, with tears streaming down her face.",
+      "clip_2_tension_en": "THE TENSION (8-16s): Continuing from previous clip — Pull back to reveal the woman sitting in bed, surrounded by notes and books about dreams. She looks frustrated and worried, as if trying to remember a specific dream.",
+      "clip_3_revelation_en": "THE REVELATION (16-24s): Continuing from previous clip — Drone rising shot above the woman's desk, showing her research and papers scattered everywhere. The camera zooms in on a specific book, 'The Psychology of Dreams', as the woman looks relieved and inspired.",
+      "clip_4_impact_en": "THE IMPACT (24-32s): Continuing from previous clip — Close-up on face again. The woman's expression changes to one of determination, with a voiceover saying, 'I finally understand why my brain keeps forgetting my dreams.' Slow motion as she writes down her newfound insights.",
+      "voiceover_en": "You see, our brains are wired to forget most of what happens during REM sleep. But, by understanding the underlying fears and emotions, we can tap into our subconscious mind and unlock the secrets of our dreams. It's all about embracing the mystery of the human psyche.",
+      "post_text_en": "🔥 Did you know your brain might be sabotaging your dream recall? 💤 Discover how to tap into your subconscious mind and unlock the secrets of your dreams! 📚💡 See More for a deeper dive into the psychology of dreams. #DreamsAndSubconsciousMind #MentalHealthAwareness",
+      "generated_by": "Ollama (Local)",
+      "id": 1
+    },
+    {
+      "topic_es": "¿Cómo el estrés puede afectar tu memoria?",
+      "video_plan_es": "La narrativa seguirá a una persona que experimenta problemas para recordar eventos importantes. A medida que se desarrolla la historia, se revelará cómo el estrés puede estar influenciando su memoria y qué pueden hacer para mitigarlo.",
+      "character_description_en": "A 35-year-old woman with dark hair, wearing a white shirt, in a warmly lit modern apartment.",
+      "clip_1_hook_en": "THE HOOK (0-8s): Slow zoom in on the woman's worried expression as she stares at a calendar. She looks lost and anxious, hinting at forgotten appointments.",
+      "clip_2_tension_en": "THE TENSION (8-16s): Continuing from previous clip — Close-up on her face as she tries to recall the name of an old friend. Her eyes dart back and forth, conveying frustration and desperation.",
+      "clip_3_revelation_en": "THE REVELATION (16-24s): Continuing from previous clip — Pull back to reveal a cluttered desk with reminders and notes scattered everywhere. The camera pans across the chaos as our protagonist realizes that stress might be affecting her memory.",
+      "clip_4_impact_en": "THE IMPACT (24-32s): Continuing from previous clip — Close-up on the woman's face again, this time with a determined look. She takes a deep breath and smiles, as if she's found a solution to her problem. The camera slowly zooms out to reveal a clean and organized desk, symbolizing the power of mindfulness and stress management.",
+      "voiceover_en": "Stress can be a major memory-killer. But there's hope. By practicing mindfulness and prioritizing self-care, we can reclaim our memories and live more intentionally.",
+      "post_text_en": "Did you know that chronic stress can shrink your hippocampus by 10%? 🤯💔 Start managing your stress today to protect your memory! 💪🏼 #MemoryLoss #StressManagement #MentalHealthMatters",
+      "generated_by": "Ollama (Local)",
+      "id": 2
+    },
+    {
+      "topic_es": "¿Por qué el estrés afecta tu memoria?",
+      "video_plan_es": "En este video, exploraremos cómo el estrés puede influir negativamente en la formación de recuerdos y aprendizaje. El personaje principal será una joven adulta con problemas para recordar información después de un período de estrés prolongado. La narrativa seguirá su búsqueda por entender qué le pasa y cómo puede mejorar sus habilidades cognitivas.",
+      "character_description_en": "A 25-year-old woman with short blonde hair, wearing a gray sweatshirt and jeans, sitting on a couch in a minimalist living room with warm lighting.",
+      "clip_1_hook_en": "THE HOOK (0-8s): Close-up on face. The young woman looks worried and frustrated, scribbling notes furiously on a piece of paper while staring at a blank wall.",
+      "clip_2_tension_en": "THE TENSION (8-16s): Continuing from previous clip — Slow zoom out. The woman's hands are shaking as she tries to recall the information she learned earlier, with a look of desperation in her eyes.",
+      "clip_3_revelation_en": "THE REVELATION (16-24s): Continuing from previous clip — Pull back. A sudden realization dawns on the woman's face as she remembers a key piece of information, and she looks relieved.",
+      "clip_4_impact_en": "THE IMPACT (24-32s): Continuing from previous clip — Drone rising shot. The woman stands up, looking determined, with a cityscape in the background, symbolizing her newfound ability to recall memories under stress.",
+      "voiceover_en": "When we're stressed, our brains can struggle to form new memories. But by understanding how our brains work, we can learn to improve our memory and cognitive abilities. See how it's possible in the comments below!",
+      "post_text_en": "🤯 Did you know that prolonged stress can erase up to 50% of your brain's neurons? 😱 But there is hope! By learning how to manage stress, we can boost our memory and cognitive skills. Share your tips for reducing stress in the comments! #StressLess #MemoryBoost #CognitiveWellness",
+      "generated_by": "Ollama (Local)",
+      "id": 3
+    },
+    {
+      "topic_es": "¿Por qué tu mente puede engañarte para creer que te estás volviendo más viejo?",
+      "video_plan_es": "Un video de 32 segundos que explora cómo el sesgo cognitivo y la percepción subconsciente pueden hacer que parezcas más viejo que realmente eres. El personaje principal, una mujer de 35 años con cabello oscuro y un estilo moderno, experimenta una serie de situaciones que la llevan a descubrir su verdadera edad.",
+      "character_description_en": "A 35-year-old woman with dark hair, wearing a white shirt and jeans in a warmly lit modern apartment.",
+      "clip_1_hook_en": "THE HOOK (0-8s): Close-up on face. The camera zooms in on the woman's face as she looks puzzled, then her eyes widen in shock, revealing fine lines and wrinkles.",
+      "clip_2_tension_en": "THE TENSION (8-16s): Continuing from previous clip — Pan left. The woman stands up, looking at herself in the mirror, noticing more signs of aging, like gray hairs and crow's feet.",
+      "clip_3_revelation_en": "THE REVELATION (16-24s): Continuing from previous clip — Slow zoom out. As she gazes at her reflection, a subtle realization dawns on her face: her self-perception is influenced by societal expectations and cognitive biases.",
+      "clip_4_impact_en": "THE IMPACT (24-32s): Continuing from previous clip — Close-up on face in slow motion. With a newfound understanding, the woman's expression transforms from concern to empowerment, as she smiles softly, embracing her true age.",
+      "voiceover_en": "We're not getting older, we're just perceiving aging differently. Our brains are wired to prioritize self-preservation, making us more aware of our physical appearance. But what if I told you that this perception is influenced by societal expectations and cognitive biases? The truth is, your true age is not defined by wrinkles or gray hairs.",
+      "post_text_en": "Did you know that 75% of people believe they're aging faster than their parents did? What's the real reason behind our perceived aging? Share your thoughts in the comments! #AgingPerception #CognitiveBias #SelfPerception",
+      "generated_by": "Ollama (Local)",
+      "id": 4
+    },
+    {
+      "topic_es": "El poder del sueño sobre tu memoria",
+      "video_plan_es": "En este video, exploramos cómo el sueño afecta la formación de nuevos recuerdos y la consolidación de los ya existentes. El personaje es una mujer de 35 años con cabello oscuro y un traje blanco, en un apartamento moderno iluminado cálidamente. La historia sigue al personaje mientras descubre cómo el sueño puede influir positivamente o negativamente en su memoria.",
+      "character_description_en": "A 35-year-old woman with dark hair, wearing a white shirt, in a warmly lit modern apartment",
+      "clip_1_hook_en": "THE HOOK (0-8s): Close-up on the woman's face. She looks puzzled, then suddenly her eyes widen as she realizes she forgot something important.",
+      "clip_2_tension_en": "Continuing from previous clip — Slow zoom in on the woman's hands as she frantically searches for a piece of paper with forgotten information.",
+      "clip_3_revelation_en": "THE REVELATION (16-24s): Continuing from previous clip — Pull back to reveal the woman holding a memory book, showing how her dreams have influenced her recollections.",
+      "clip_4_impact_en": "THE IMPACT (24-32s): Continuing from previous clip — Drone rising shot above the cityscape at night, with subtle flashing lights representing memories. Voiceover: 'Your sleep can either strengthen or weaken your memory.'",
+      "voiceover_en": "As we forget and relearn new information every day, our dreams play a crucial role in shaping our memories. By understanding how sleep affects our recall, we can harness its power to improve our cognitive abilities.",
+      "post_text_en": "Did you know that 1 in 5 people experience memory lapses due to poor sleep quality? 🤯 Discover the surprising connection between your dreams and memory consolidation! 💤📚 'What's the most vivid dream you've had recently?' Share your stories and let's explore the mysteries of sleep and memory together! 👇 #SleepAndMemory #DreamsAndRecollections #BrainHealth",
+      "generated_by": "Ollama (Local)",
+      "id": 5
+    }
+  ]
+}
