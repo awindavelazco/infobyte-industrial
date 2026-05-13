@@ -152,22 +152,22 @@ function openModal(index) {
     if (currentView === 'videos') {
         bodyHTML += `<div style="background:#1a1a2e; border-left:3px solid #00f2fe; padding:15px; border-radius:4px; margin-bottom:15px;">`;
         bodyHTML += `<small style="color:#00f2fe; font-weight:bold; display:block; margin-bottom:5px;">🇪🇸 PLAN DEL VIDEO (ES)</small>`;
-        bodyHTML += `<span style="color:#ccc;">${item.video_plan_es || ''}</span>></div>`;
+        bodyHTML += `<span style="color:#ccc;">${item.video_plan_es || ''}</span></div>`;
 
         bodyHTML += `<div style="background:#1a1a2e; border-left:3px solid #e91e63; padding:15px; border-radius:4px; margin-bottom:15px;">`;
         bodyHTML += `<small style="color:#e91e63; font-weight:bold; display:block; margin-bottom:5px;">🎤 VOICEOVER (EN)</small>`;
-        bodyHTML += `<span style="color:#ccc;">${item.voiceover_en || ''}</span>></div>`;
+        bodyHTML += `<span style="color:#ccc;">${item.voiceover_en || ''}</span></div>`;
 
         bodyHTML += `<div style="display:flex; gap:10px; margin-bottom:15px;">`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 1 (0-8s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_1_hook_en || item.scene_1_prompt_en || ''}</span>></div>`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 2 (8-16s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_2_tension_en || item.scene_2_prompt_en || ''}</span>></div>`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 3 (16-24s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_3_revelation_en || item.scene_3_prompt_en || ''}</span>></div>`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 4 (24-32s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_4_impact_en || item.scene_4_prompt_en || ''}</span>></div>`;
+        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 1 (0-8s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_1_hook_en || item.scene_1_prompt_en || ''}</span></div>`;
+        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 2 (8-16s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_2_tension_en || item.scene_2_prompt_en || ''}</span></div>`;
+        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 3 (16-24s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_3_revelation_en || item.scene_3_prompt_en || ''}</span></div>`;
+        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 4 (24-32s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_4_impact_en || item.scene_4_prompt_en || ''}</span></div>`;
         bodyHTML += `</div>`;
 
         bodyHTML += `<div style="background:#1a1a2e; border-left:3px solid #2e7d32; padding:15px; border-radius:4px;">`;
         bodyHTML += `<small style="color:#2e7d32; font-weight:bold; display:block; margin-bottom:5px;">📋 POST CAPTION (EN)</small>`;
-        bodyHTML += `<span style="color:#ccc; white-space: pre-wrap;">${item.post_text_en || ''}</span>></div>`;
+        bodyHTML += `<span style="color:#ccc; white-space: pre-wrap;">${item.post_text_en || ''}</span></div>`;
     } else {
         let postEN_Text = "";
         if (typeof item.postEN === 'object' && item.postEN !== null) {
@@ -190,10 +190,10 @@ function openModal(index) {
         bodyHTML += `<div style="display: flex; gap: 20px; text-align: left;">`;
         bodyHTML += `<div style="flex: 1; background:#1a1a2e; border-left:3px solid #00f2fe; padding:15px; border-radius:4px; max-height: 50vh; overflow-y: auto;">`;
         bodyHTML += `<small style="color:#00f2fe; font-weight:bold; display:block; margin-bottom:10px;">🇺🇸 ${typeLabel} (English)</small>`;
-        bodyHTML += `<span style="color:#ccc; line-height: 1.6; display: block; white-space: pre-wrap;">${postEN_Text}</span>></div>`;
+        bodyHTML += `<span style="color:#ccc; line-height: 1.6; display: block; white-space: pre-wrap;">${postEN_Text}</span></div>`;
         bodyHTML += `<div style="flex: 1; background:#1a1a2e; border-left:3px solid #2e7d32; padding:15px; border-radius:4px; max-height: 50vh; overflow-y: auto;">`;
         bodyHTML += `<small style="color:#2e7d32; font-weight:bold; display:block; margin-bottom:10px;">🇪🇸 ${typeLabel} (Español)</small>`;
-        bodyHTML += `<span style="color:#ccc; line-height: 1.6; display: block; white-space: pre-wrap;">${postES_Text}</span>></div>`;
+        bodyHTML += `<span style="color:#ccc; line-height: 1.6; display: block; white-space: pre-wrap;">${postES_Text}</span></div>`;
         bodyHTML += `</div>`;
     }
 
@@ -250,7 +250,7 @@ function copyPhrasePrompt(index) { navigator.clipboard.writeText(phrasesData[ind
 function copyVideoVoiceover(index) {
     const item = videosData[index];
     navigator.clipboard.writeText(item.voiceover_en || '');
-    showToast("🎤 Voz en off copiada!");
+    showHtoast("🎤 Voz en off copiada!");
 }
 
 function copyVideoPrompts(index) {
