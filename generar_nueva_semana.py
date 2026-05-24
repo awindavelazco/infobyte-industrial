@@ -4,6 +4,7 @@ import time
 from google import genai
 from google.genai import types
 from engine_agentes import InfobyteEngine
+from crear_video_seedboy import SeedboyVideoEngine
 
 def read_history(filename):
     if not os.path.exists(filename):
@@ -16,11 +17,37 @@ def append_history(filename, text):
     with open(filename, 'a', encoding='utf-8') as f:
         f.write(text + "\n")
 
+def safe_generate(engine, prompt, retries=6):
+    for attempt in range(retries):
+        try:
+            client = genai.Client(api_key=engine.get_active_key())
+            res = client.models.generate_content(
+                model='gemini-2.0-flash',
+                config=types.GenerateContentConfig(response_mime_type="application/json"),
+                contents=prompt
+            )
+            return json.loads(res.text)
+        except Exception as e:
+            print(f"⚠️ Error Gemini (Intento {attempt+1}): {e}. Rotando llave...")
+            engine.rotate_key()
+            time.sleep(3)
+            
+    print("🔥 Todas las llaves Gemini agotadas. Activando Ollama LOCAL para generar...")
+    try:
+        response = engine.call_ollama(prompt, format_json=True)
+        return engine.extract_json(response)
+    except Exception as e:
+        print(f"❌ Error con Ollama Local: {e}")
+        return None
+
 def generate_weekly_content():
     print("==================================================")
     print("🚀 INICIANDO GENERACIÓN DE SEMANA INFOBYTE 🚀")
     print("==================================================")
-    
+
+    # Preguntar si se desea generar videos para optimizar cuotas de API
+    gen_videos = input("\n¿Deseas generar también los Video Scripts para Flow AI? (s/n): ").strip().lower() == 's'
+
     engine = InfobyteEngine()
     client = genai.Client(api_key=engine.get_active_key())
     
@@ -52,17 +79,16 @@ def generate_weekly_content():
     }}
     """
     try:
-        res = client.models.generate_content(
-            model='gemini-2.0-flash',
-            config=types.GenerateContentConfig(response_mime_type="application/json"),
-            contents=prompt_spirit
-        )
-        spirit_data = json.loads(res.text)
-        with open('frases_content.json', 'w', encoding='utf-8') as f:
-            json.dump(spirit_data, f, indent=2, ensure_ascii=False)
-        for p in spirit_data.get('phrases', []):
-            append_history("historico_spirit.txt", p.get('post_title', ''))
-        print("✅ 7 Apuntes del Alma generados con éxito.")
+        spirit_data = safe_generate(engine, prompt_spirit)
+        if spirit_data and isinstance(spirit_data.get('phrases'), list) and len(spirit_data['phrases']) > 0:
+            spirit_data['generated_at'] = time.strftime("%Y-%m-%d %H:%M:%S")
+            with open('frases_content.json', 'w', encoding='utf-8') as f:
+                json.dump(spirit_data, f, indent=2, ensure_ascii=False)
+            for p in spirit_data.get('phrases', []):
+                append_history("historico_spirit.txt", p.get('post_title', ''))
+            print("✅ 7 Apuntes del Alma generados con éxito.")
+        else:
+            print("❌ Error: Schema inválido de Spirit devuelto.")
     except Exception as e:
         print(f"❌ Error en Spirit: {e}")
 
@@ -92,20 +118,19 @@ def generate_weekly_content():
         }}
         """
         try:
-            res = client.models.generate_content(
-                model='gemini-2.0-flash',
-                config=types.GenerateContentConfig(response_mime_type="application/json"),
-                contents=prompt_quizzes
-            )
-            lote_data = json.loads(res.text)
-            for q in lote_data.get('quizzes', []):
-                q['id'] = len(all_quizzes) + 1
-                all_quizzes.append(q)
-                hist_quizzes += f"\n{q.get('headline','')}"
-                append_history("historico_quizzes.txt", q.get('headline', ''))
-            
-            # Guardado parcial
-            with open('quizzes_content.json', 'w', encoding='utf-8') as f:
+            lote_data = safe_generate(engine, prompt_quizzes)
+            if lote_data and isinstance(lote_data.get('quizzes'), list):
+                for q in lote_data.get('quizzes', []):
+                    q['id'] = len(all_quizzes) + 1
+                    all_quizzes.append(q)
+                    hist_quizzes += f"\n{q.get('headline','')}"
+                    append_history("historico_quizzes.txt", q.get('headline', ''))
+                
+                # Guardado parcial
+                with open('quizzes_content.json', 'w', encoding='utf-8') as f:
+                    json.dump({"generated_at": time.strftime("%Y-%m-%d %H:%M:%S"), "quizzes": all_quizzes}, f, indent=2, ensure_ascii=False)
+            else:
+                print(f"❌ Error Schema Lote {lote+1} inválido")
                 json.dump({"generated_at": time.strftime("%Y-%m-%d %H:%M:%S"), "quizzes": all_quizzes}, f, indent=2, ensure_ascii=False)
             
         except Exception as e:
@@ -168,6 +193,28 @@ def generate_weekly_content():
     print("\n==================================================")
     print(f"🎯 ¡LOTE SEMANAL COMPLETO! ({len(todas_las_noticias) + len(all_quizzes) + 7} POSTS) 🎯")
     print("==================================================")
+
+    # --- 4. GENERAR VIDEOS SEEDBOY (Flow AI Edition) ---
+    if gen_videos:
+        print("\n>>> FASE 4: Generando Video Scripts para Flow AI...")
+        video_engine = SeedboyVideoEngine()
+        # Usamos el estilo 1 (3D Pixar) por defecto para la automatización semanal
+        video_data = video_engine.generate_video_script("1")
+
+        if video_data:
+            video_data['id'] = 1
+            with open('videos_content.json', 'w', encoding='utf-8') as f:
+                json.dump({
+                    "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "format": "flow_ai_4x8s",
+                    "videos": [video_data]
+                }, f, indent=2, ensure_ascii=False)
+            print("✅ Guion de video generado y guardado en videos_content.json")
+        else:
+            print("❌ Error al generar el video semanal.")
+    else:
+        print("\n>>> FASE 4: Saltando generación de videos (Opción del usuario).")
+
 
 if __name__ == "__main__":
     generate_weekly_content()

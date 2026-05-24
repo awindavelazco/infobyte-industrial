@@ -1,0 +1,94 @@
+{
+  "quizzes": [
+    {
+      "id": 1,
+      "topic": "Space",
+      "headline": "Black Holes vs. Neutron Stars",
+      "hook_question": "Which cosmic object has the strongest gravitational pull?",
+      "postEN": "🚀 COSMIC QUIZ! Which is denser: a Black Hole or a Neutron Star? 🤯\n\nA) Black Hole — it's pure gravity, no surface\nB) Neutron Star — a teaspoon weighs a BILLION tons\nC) They're equal\nD) White Dwarf wins\n\n🔬 Science says: B — A neutron star is so dense, one teaspoon would weigh ~10 million tons on Earth. Black holes don't have density in the classical sense!\n\nDrop your answer below! ⬇️ #SpaceQuiz #CosmicFacts #Astrophysics",
+      "postES": "🚀 ¡QUIZ CÓSMICO! ¿Cuál es más denso: un Agujero Negro o una Estrella de Neutrones? 🤯\n\nA) Agujero Negro — es gravedad pura\nB) Estrella de Neutrones — una cucharadita pesa mil millones de toneladas\nC) Son iguales\nD) La Enana Blanca gana\n\n🔬 La ciencia dice: B — ¡Una estrella de neutrones es tan densa que una cucharadita pesaría ~10 millones de toneladas!\n\n¡Deja tu respuesta abajo! ⬇️ #QuizEspacial #CienciaEspacial #Astrofísica",
+      "visual_prompt": "Epic cinematic collision between a neutron star and a black hole in deep space, gravitational waves visible, spectacular light effects, 8k ultra-realistic."
+    },
+    {
+      "id": 2,
+      "topic": "Mind",
+      "headline": "The Memory Myth",
+      "hook_question": "How much of your memory is actually accurate?",
+      "postEN": "🧠 BRAIN QUIZ! Can you trust your own memory? 🤔\n\nA) 90% accurate — it's like a video recording\nB) 70% accurate\nC) Only 50% — memories are reconstructed each time\nD) It depends on the emotion\n\n🔬 Science says: C & D — Every time you recall a memory, your brain REWRITES it. Strong emotions make memories feel vivid but don't make them accurate!\n\nMind blown? 💥 Share with someone! #BrainScience #MemoryMyth #Psychology",
+      "postES": "🧠 ¡QUIZ CEREBRAL! ¿Puedes confiar en tu propia memoria? 🤔\n\nA) 90% precisa — es como una grabación de video\nB) 70% precisa\nC) Solo 50% — los recuerdos se reconstruyen cada vez\nD) Depende de la emoción\n\n🔬 La ciencia dice: C & D — ¡Cada vez que recuerdas algo, tu cerebro lo REESCRIBE! Las emociones fuertes hacen los recuerdos más vívidos pero no más precisos.\n\n¿Te quedaste con la mente abierta? 💥 #CienciaCerebral #MitoMemoria #Psicología",
+      "visual_prompt": "Abstract visualization of neural memory networks, glowing synapses rewriting themselves, iridescent brain cells, cinematic blue tones, 8k."
+    },
+    {
+      "id": 3,
+      "topic": "Nature",
+      "headline": "The Language of Trees",
+      "hook_question": "Do trees actually communicate with each other?",
+      "postEN": "🌳 NATURE QUIZ! Trees can communicate. But HOW? 🌿\n\nA) Through root systems sharing nutrients\nB) Via chemical signals in the air\nC) Using fungal networks underground (the Wood Wide Web)\nD) All of the above!\n\n🔬 Science says: D — Trees share nutrients, warn of insects via chemicals, AND use mycorrhizal fungal networks to send resources to weaker trees!\n\nNature is more intelligent than we thought! 🍃 #NatureQuiz #WoodWideWeb #ForestScience",
+      "postES": "🌳 ¡QUIZ NATURALEZA! Los árboles se comunican. ¿Pero CÓMO? 🌿\n\nA) A través de sistemas de raíces que comparten nutrientes\nB) Mediante señales químicas en el aire\nC) Usando redes fúngicas subterráneas (la Web del Bosque)\nD) ¡Todo lo anterior!\n\n🔬 La ciencia dice: D — ¡Los árboles comparten nutrientes, advierten sobre insectos con químicos, Y usan redes de hongos para enviar recursos a los más débiles!\n\n¡La naturaleza es más inteligente de lo que creíamos! 🍃 #QuizNaturaleza #CienciaBosque",
+      "visual_prompt": "Magical underground root network glowing with bioluminescent fungi connecting forest trees, ethereal green and gold light, ultra detailed, 8k."
+    },
+    {
+      "id": 4,
+      "topic": "Health",
+      "headline": "Sleep Science Secrets",
+      "hook_question": "What actually happens to your brain while you sleep?",
+      "postEN": "😴 SLEEP QUIZ! Your brain during sleep is... 🧠\n\nA) Fully resting and inactive\nB) Replaying your day to form memories\nC) Cleaning itself from toxic proteins\nD) Both B and C!\n\n🔬 Science says: D — During deep sleep, your brain CONSOLIDATES memories AND activates the glymphatic system to flush out neurotoxins linked to Alzheimer's!\n\nSleep is not laziness — it's MAINTENANCE! 💪 #SleepScience #BrainHealth #HealthQuiz",
+      "postES": "😴 ¡QUIZ DEL SUEÑO! Tu cerebro mientras duermes... 🧠\n\nA) Descansa completamente e inactivo\nB) Repasa tu día para formar memorias\nC) Se limpia a sí mismo de proteínas tóxicas\nD) ¡B y C juntos!\n\n🔬 La ciencia dice: D — ¡Durante el sueño profundo, tu cerebro CONSOLIDA memorias Y activa el sistema glinfático para eliminar neurotoxinas!\n\n¡Dormir no es pereza, es MANTENIMIENTO! 💪 #CienciaDelSueño #SaludCerebral",
+      "visual_prompt": "Cinematic macro shot of glowing neural pathways being cleaned during sleep, soft blue bioluminescent waves, peaceful and scientific, 8k."
+    },
+    {
+      "id": 5,
+      "topic": "Future",
+      "headline": "Quantum Computing Reality",
+      "hook_question": "What can quantum computers do that regular computers cannot?",
+      "postEN": "💻 QUANTUM QUIZ! What makes quantum computers revolutionary? ⚛️\n\nA) They're just faster regular computers\nB) They process multiple solutions simultaneously using superposition\nC) They never make errors\nD) They use light instead of electricity\n\n🔬 Science says: B — Quantum bits (qubits) exist in MULTIPLE states at once, allowing them to explore millions of solutions simultaneously — impossible for classical computers!\n\nThe future is quantum! 🚀 #QuantumQuiz #FutureTech #QuantumComputing",
+      "postES": "💻 ¡QUIZ CUÁNTICO! ¿Qué hace revolucionarias a las computadoras cuánticas? ⚛️\n\nA) Son simplemente computadoras más rápidas\nB) Procesan múltiples soluciones simultáneamente usando superposición\nC) Nunca cometen errores\nD) Usan luz en lugar de electricidad\n\n🔬 La ciencia dice: B — ¡Los qubits existen en MÚLTIPLES estados a la vez, explorando millones de soluciones simultáneamente!\n\n¡El futuro es cuántico! 🚀 #QuizCuántico #TecnologíaFutura",
+      "visual_prompt": "Abstract quantum computer with glowing qubits in superposition, crystalline structures, electric blue and purple tones, ultra futuristic, 8k."
+    },
+    {
+      "id": 6,
+      "topic": "Space",
+      "headline": "The Age of the Universe",
+      "hook_question": "How old is our universe — and how do we know?",
+      "postEN": "🌌 SPACE QUIZ! How old is the Universe? ✨\n\nA) 4.5 billion years\nB) 13.8 billion years\nC) 100 billion years\nD) Scientists still don't know\n\n🔬 Science says: B — 13.8 billion years, measured by the Cosmic Microwave Background radiation — the faint echo of the Big Bang still detectable today!\n\nWe hear the Big Bang's whisper! 🎙️ #UniverseQuiz #BigBang #CosmologyFacts",
+      "postES": "🌌 ¡QUIZ ESPACIAL! ¿Cuántos años tiene el Universo? ✨\n\nA) 4.5 mil millones de años\nB) 13.8 mil millones de años\nC) 100 mil millones de años\nD) Los científicos aún no saben\n\n🔬 La ciencia dice: B — 13.8 mil millones de años, medidos por la radiación de fondo cósmico de microondas — ¡el eco del Big Bang aún detectable hoy!\n\n¡Escuchamos el susurro del Big Bang! 🎙️ #QuizUniverso #BigBang",
+      "visual_prompt": "Breathtaking visualization of the Big Bang expanding into the universe, cosmic microwave background radiation, galaxies forming, epic scale, 8k."
+    },
+    {
+      "id": 7,
+      "topic": "Mind",
+      "headline": "The Placebo Paradox",
+      "hook_question": "Can your brain actually heal your body with a fake pill?",
+      "postEN": "💊 MIND QUIZ! The Placebo Effect can... 🧠\n\nA) Only help with mild pain\nB) Reduce symptoms even when patients KNOW it's a placebo\nC) Have no real physical effect — it's just imagination\nD) Only work 5% of the time\n\n🔬 Science says: B — Studies show open-label placebos (where people KNOW they're fake) still reduce pain and IBS symptoms significantly. The brain is THAT powerful!\n\nYour mind is the ultimate pharmacy! 💊 #PlaceboEffect #MindOverMatter #NeuroscienceQuiz",
+      "postES": "💊 ¡QUIZ MENTAL! El Efecto Placebo puede... 🧠\n\nA) Solo ayudar con dolor leve\nB) Reducir síntomas incluso cuando el paciente SABE que es un placebo\nC) No tener efecto físico real — es solo imaginación\nD) Solo funcionar el 5% del tiempo\n\n🔬 La ciencia dice: B — Los estudios muestran que los placebos abiertos (donde la gente SABE que son falsos) siguen reduciendo el dolor significativamente. ¡El cerebro es ASÍ de poderoso!\n\n¡Tu mente es la farmacia definitiva! 💊 #EfectoPlacebo #MentesobreMaeria",
+      "visual_prompt": "Human brain glowing with warm golden light healing pathways, pharmaceutical capsules dissolving into neural networks, cinematic and scientific, 8k."
+    },
+    {
+      "id": 8,
+      "topic": "Nature",
+      "headline": "Ocean Mysteries",
+      "hook_question": "How much of the ocean floor has actually been explored?",
+      "postEN": "🌊 OCEAN QUIZ! How much of Earth's ocean has been explored? 🐠\n\nA) 80%\nB) 50%\nC) Only about 20%\nD) 100% with modern sonar\n\n🔬 Science says: C — Less than 20% of Earth's oceans have been mapped in high resolution! We know more about the surface of Mars than our own ocean floor.\n\nThe deep ocean is Earth's final frontier! 🔭 #OceanQuiz #DeepSea #MarineScience",
+      "postES": "🌊 ¡QUIZ OCEÁNICO! ¿Cuánto del océano de la Tierra ha sido explorado? 🐠\n\nA) 80%\nB) 50%\nC) Solo alrededor del 20%\nD) 100% con sonar moderno\n\n🔬 La ciencia dice: C — ¡Menos del 20% de los océanos ha sido mapeado en alta resolución! Sabemos más sobre la superficie de Marte que de nuestro propio fondo oceánico.\n\n¡El océano profundo es la última frontera de la Tierra! 🔭 #QuizOcéano #CienciaMaritima",
+      "visual_prompt": "Mysterious deep ocean bioluminescent creatures in pitch black water, alien-like beauty, cinematic underwater lighting, ultra realistic, 8k."
+    },
+    {
+      "id": 9,
+      "topic": "Health",
+      "headline": "The Gut Microbiome",
+      "hook_question": "How many bacteria are living inside your gut right now?",
+      "postEN": "🦠 GUT QUIZ! How many bacteria live in your gut? 😱\n\nA) Thousands\nB) Millions\nC) Billions\nD) 38 TRILLION — more than your own cells!\n\n🔬 Science says: D — You have ~38 trillion bacterial cells in your gut, outnumbering your own human cells. They influence mood, immunity, weight, and even brain function!\n\nYou are 50% bacteria! 🤯 #GutHealth #MicrobiomeQuiz #HealthScience",
+      "postES": "🦠 ¡QUIZ INTESTINAL! ¿Cuántas bacterias viven en tu intestino? 😱\n\nA) Miles\nB) Millones\nC) Miles de millones\nD) ¡38 BILLONES — más que tus propias células!\n\n🔬 La ciencia dice: D — Tienes ~38 billones de células bacterianas en tu intestino, ¡superando en número a tus propias células humanas!\n\n¡Eres 50% bacteria! 🤯 #SaludIntestinal #QuizMicrobioma #CienciaSalud",
+      "visual_prompt": "Colorful microscopic gut bacteria ecosystem glowing with life, vibrant biology illustration, scientific yet beautiful, 8k macro photography style."
+    },
+    {
+      "id": 10,
+      "topic": "Future",
+      "headline": "Artificial Intelligence Limits",
+      "hook_question": "Is there something humans can do that AI never will?",
+      "postEN": "🤖 AI QUIZ! What can humans do that current AI fundamentally cannot? 🧠\n\nA) Play chess at grandmaster level\nB) Generate creative art\nC) Truly understand emotions and consciousness\nD) Write convincing stories\n\n🔬 Science says: C — Current AI simulates understanding but has NO subjective experience. Consciousness, genuine empathy, and self-awareness remain exclusively human — for now.\n\nWhat do YOU think AI will never replace? ⬇️ #AIQuiz #FutureOfAI #HumanVsAI",
+      "postES": "🤖 ¡QUIZ DE IA! ¿Qué pueden hacer los humanos que la IA fundamentalmente no puede? 🧠\n\nA) Jugar ajedrez a nivel gran maestro\nB) Generar arte creativo\nC) Comprender verdaderamente las emociones y la consciencia\nD) Escribir historias convincentes\n\n🔬 La ciencia dice: C — La IA actual simula comprensión pero NO tiene experiencia subjetiva. La consciencia, empatía genuina y autoconciencia siguen siendo exclusivamente humanas.\n\n¿Qué crees que la IA NUNCA reemplazará? ⬇️ #QuizIA #FuturoIA #HumanoVsIA",
+      "visual_prompt": "Human hand and robotic hand reaching toward each other but not touching, warm human glow vs cold blue AI light, dramatic contrast, cinematic, 8k."
+    }
+  ]
+}

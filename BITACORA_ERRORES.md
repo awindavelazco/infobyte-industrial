@@ -1,16 +1,15 @@
 # BITACORA DE ERRORES Y ESTADO DEL SISTEMA — INFOBYTE INDUSTRIAL
 # LECTURA OBLIGATORIA AL INICIO DE CADA SESION DE DESARROLLO
-# Ultima actualizacion: 2026-05-09
+# Ultima actualizacion: 2026-05-16
 
 ---
 ## ESTADO ACTUAL DEL SISTEMA (RESUMEN PARA NUEVO CHAT)
 
-### 🔴 ESTADO DE API KEYS (al 2026-05-09 ~6pm EST)
-- **news_keys:** 6 llaves — TODAS AGOTADAS (429 Rate Limit diario)
-- **video_keys:** 6 llaves — TODAS AGOTADAS (429 Rate Limit diario)
-- **Causa:** Se ejecutaron crear_video_viral.py (5 videos) y crear_frase_viral.py (7 frases) en la misma sesion con prompts de alto consumo de tokens. Ver ERROR #009.
-- **Reinicio:** Las cuotas se reinician aprox. a las 3am EST / midnight PST.
-- **Accion obligatoria al inicio de sesion:** Ejecutar auditoria de llaves ANTES de cualquier generacion.
+### 🔴 ESTADO DE API KEYS (al 2026-05-13 ~8pm EST)
+- **news_keys:** 6 llaves — OK (Reiniciadas)
+- **video_keys:** 6 llaves — OK (Reiniciadas)
+- **Acción hoy:** Se priorizó el uso de **Ollama + Claude (Local)** para evitar el agotamiento de cuotas de Antigravity.
+- **Nota:** Ollama + Claude local presenta lentitud extrema en procesamiento de prompts complejos.
 
 ### 📁 SCRIPTS ACTIVOS Y SU FUNCION
 | Script | Funcion | Lote | Estado |
@@ -19,6 +18,7 @@
 | `crear_frase_viral.py` | Posts de frases/reflexiones (Soul Notes / Infobyte) | 7/semana | MODIFICADO HOY |
 | `crear_video_viral.py` | Guiones de video 4x8s para Flow AI (Reels 32s) | 5/semana | MODIFICADO HOY |
 | `crear_quiz_viral.py` | Quizzes interactivos | 2/semana | Sin cambios |
+| `actualizar_inteligencia.py` | Refresco mensual de tendencias Facebook para QA | Mensual | NUEVO |
 | `crear_video_seedboy.py` | Guiones para concurso Cartoon Hero x Seedboy | 2 por ejecucion | Sin cambios |
 | `generar_nueva_semana.py` | Generador semanal completo (noticias) | Semanal | Sin cambios |
 
@@ -42,18 +42,18 @@
 | Sabado | VIDEO | — | — |
 | Domingo | — | Soul Notes | Post Curiosidad |
 
-### ⚙️ CAMBIOS REALIZADOS EN ESTA SESION (2026-05-09)
-1. **crear_video_viral.py** — Rediseado con tecnica Continuidad 4x8s para Flow AI (32s Reels). Prompt mas largo (650 tokens). **PENDIENTE OPTIMIZACION** (ver ERROR #009).
-2. **crear_frase_viral.py** — Nuevo prompt con Curiosity Gap, imagenes de personas reales, lote reducido a 7/semana.
-3. **crear_video_seedboy.py** — Creado desde cero para concurso Cartoon Hero x Seedboy.
-4. **BITACORA** — Actualizacion con ERROR #008 y #009.
-5. **Backup** — Carpeta `backup_20260509_1452` con todos los scripts antes de cambios.
+### ⚙️ CAMBIOS REALIZADOS EN ESTA SESIÓN (2026-05-14)
+1. **Ollama + Claude**: Configuración exitosa del motor local para evitar el agotamiento de Antigravity.
+2. **crear_moda_cartoon.py**: Nuevo script de moda futurista siguiendo la técnica Cartoon Hero (4x8s).
+3. **video_moda_cartoon.json**: Generado el primer guion de la serie "Lumina" (Diseñadora de Luz).
+4. **Dashboard Filter**: Implementado filtro en `script.js` para ocultar contenido de Ollama (Fix #4).
+5. **BITÁCORA**: Actualización de progreso y tareas pendientes.
 
 ### ⚠️ FIXES PENDIENTES DE APROBACION (NO ejecutar sin OK del usuario)
 1. Reducir prompt de `crear_video_viral.py` a max 300 tokens.
 2. Cambiar logica de retry: rotar llave inmediatamente al primer 429.
 3. Si todas las llaves fallan → detener proceso, NO caer a Ollama en produccion.
-4. Agregar validacion: si generated_by == "Ollama", excluir del dashboard automaticamente.
+4. **COMPLETADO:** Agregar validacion: si generated_by == "Ollama", excluir del dashboard automaticamente.
 
 ### 🚫 CONTENIDO NO PUBLICABLE (generado hoy por Ollama)
 - `frases_content.json` actual: **NO PUBLICAR** — posts incompletos y estadisticas falsas.
@@ -66,6 +66,22 @@
 - Dashboard en GitHub Pages (rama: main)
 - Estructura JSON validada antes de escribir al disco (ERROR #001 corregido)
 - Backup automatico de scripts antes de modificaciones
+
+---
+
+## 🚀 GUÍA DE ACCESO RÁPIDO AL DASHBOARD (LOCAL)
+Si estás perdida y no sabes cómo ver el proyecto:
+
+### Opción A: La más fácil (Archivo Automático)
+1. Ve a la carpeta `facebook_post_assistant`.
+2. Busca el archivo llamado `iniciar_dashboard.bat`.
+3. Haz doble clic en él. Se abrirá una ventana negra y automáticamente tu navegador en `http://localhost:8000`.
+4. **No cierres la ventana negra** mientras estés usando el dashboard.
+
+### Opción B: Manual (Desde la Terminal)
+1. Abre una terminal en la carpeta del proyecto.
+2. Escribe y pulsa Enter: `python -m http.server 8000`
+3. Abre tu navegador y ve a: `http://localhost:8000`
 
 ---
 
@@ -355,4 +371,251 @@ El nuevo prompt_instruction paso de ~200 tokens a ~650 tokens. Combinado con:
 - El script de auditoria de llaves se debe ejecutar PRIMERO, antes que cualquier generacion.
 
 ---
+
+## 📅 PENDIENTE PARA MAÑANA (2026-05-14)
+1. **Prompts de Imagen Base**: Crear los prompts para Midjourney de la diseñadora "Lumina" (Pelo de fibra óptica, estilo Pixar).
+2. **Generación en Flow AI**: Usar el guion de `video_moda_cartoon.json` para crear los 4 clips.
+3. **Debug Ollama**: Probar el modelo `llama3.1:8b` o `gemma:2b` si Claude local sigue siendo demasiado lento para el script automático.
+
+---
+
+## 🆕 SESIÓN 2026-05-17 — EVOLUCIÓN HACIA EL "MONTAJE DINÁMICO" Y QA
+    
+### 🚀 CAMBIOS IMPLEMENTADOS (Standard: CERO ABURRIMIENTO para Facebook)
+
+1. **Rediseño de la Estructura de Video (Viral)**:
+   - Migración de 4 clips de 8s (32s) $\rightarrow$ **5 clips de 6s (30s)**.
+   - Eliminación de la "Continuidad Estática" (`Continuing from previous clip`).
+   - Implementación de **"Dynamic Character Jump"**: El personaje es la constante, pero el entorno, la ropa y la luz EVOLUCIONAN en cada clip para representar un viaje de transformación.
+   - **Nueva Secuencia de Ángulos**: Hook (Macro) $\rightarrow$ Tension (Medium) $\rightarrow$ Revelation (Insert) $\rightarrow$ Expansion (Wide) $\rightarrow$ Impact (Slow-mo).
+
+2. **Upgrade de Inteligencia Visual**:
+    - Implementación de la **"Técnica del Ancla" (Character Anchor)**: Descripción física detallada constante, pero con cambios dinámicos de outfit y escenario.
+    - Priorización de modelos **Gemini 1.5 Pro** para la generación de prompts artísticos y psicológicos.
+    - Inyección de terminología de alta gama (Arri Alexa, anamorphic flares, volumetric fog) basada en el curso Cartoon Hero.
+
+3. **Actualización de Interfaz (Dashboard)**:
+    *   `script.js` actualizado para soportar la visualización de 5 clips.
+    *   Ajuste de etiquetas de tiempo (0-6s, 6-12s, etc.) y optimización de la cuadrícula de prompts.
+
+4. **Sistema de Control de Calidad (QA Auditor)**:
+    - Implementación de la lógica de **6 Pilares de Evaluación** (Continuidad, Física, Cinematografía, Anti-Texto, Tokens, Potencial Viral).
+    - Definición de umbrales de veredicto: APROBADO ($\ge 23$), REVISIÓN ($16-22$), RECHAZADO ($< 16$).
+    - Incorporación de la base de conocimiento de tendencias de Facebook 2026.
+
+### 📁 ARCHIVOS MODIFICADOS
+- `crear_video_viral.py`: Nueva lógica de montaje dinámico y 5 clips.
+- `engine_agentes.py`: Prompt visual psicológico y prioridad modelo Pro.
+- `script.js`: Soporte para 5 clips y tiempos de 6s.
+- `auditor_videos.py`: Sincronización con el nuevo formato de montaje dinámico.
+- `videos_content.json`: Ahora almacena el formato `5x6s_dynamic_montage`.
+
+### ⚠️ NOTA DE SEGURIDAD
+Se creó la carpeta `/obsoleto` con los backups de los scripts antes de la migración al estándar de 5 clips.
+
+---
+
+### 🧠 BASE DE CONOCIMIENTO DEL AGENTE QA (Resumen)
+- **P1 Continuidad**: Validada ahora por consistencia de rasgos físicos (Ancla) y arco emocional, no por frases de enlace.
+- **P4 Anti-Texto**: Uso obligatorio del sufijo `[CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY]`.
+- **P6 Viralidad**: Hooks de curiosidad, respaldo científico, emoción de transformación y CTAs Meta-aprobados.
+
+---
+
+### 📅 PENDIENTES DE ESTA SESIÓN (2026-05-17)
+1. **Corregir `video_moda_cartoon.json`**: Añadir anti-texto a los 4 clips y mejorar el P6 viral.
+2. **Corregir `crear_moda_cartoon.py`**: Integrar las correcciones en el template del prompt.
+3. **Crear `actualizar_inteligencia.py`**: Script mensual para refrescar tendencias de Facebook.
+**COMPLETADO:** Sincronización Total: Ejecutar `auditor_videos.py` automáticamente tras cada generación de video.
+
+---
+---
+
+## 🆕 SESIÓN 2026-05-18 — SEGMENTACIÓN DE VOZ Y CIERRE de QA
+
+### 🚀 CAMBIOS IMPLEMENTADOS
+1. **Segmentación de Voiceover (Timestamps)**: 
+   - Implementado sistema de `voiceover_segments` en `videos_content_v2.json`.
+   - Ahora la voz en off está dividida exactamente por clips (0-6s, 6-12s, etc.), facilitando el montaje en Flow AI.
+   - Actualizado `crear_video_viral.py` para persistir este formato automáticamente.
+2. **Verificación de Automatización QA**:
+   - Confirmado que `auditor_videos.py` se ejecuta automáticamente al final de `crear_video_viral.py`.
+
+---
+
 FIN DE BITACORA
+
+
+### ✅ RESUMEN DE LO CONSTRUIDO
+
+Se diseñó y construyó desde cero un **Agente de Control de Calidad (QA Agent)** exclusivo para evaluar prompts de video antes de enviarlos a Flow AI / Luma / Kling.
+
+**REGLA DE ORO DEL AGENTE: SOLO LECTURA. NUNCA modifica archivos existentes.**
+
+---
+
+### 📁 ARCHIVOS CREADOS (NUEVOS — no modifican nada existente)
+
+| Archivo | Descripción |
+|---|---|
+| `auditor_videos.py` | Agente QA principal. Evalúa prompts contra 6 pilares. Solo lectura. |
+| `videos_content_v2.json` | Versión mejorada del video "La Ciencia de la Gratitud" que pasa la auditoría. |
+
+---
+
+### 🏗️ ARQUITECTURA DEL AGENTE (`auditor_videos.py`)
+
+#### Sistema de Evaluación: 6 Pilares (máx. 30 puntos)
+
+| Pilar | Qué evalúa | Máx. |
+|---|---|---|
+| **P1 — Continuidad** | Clip 1 usa patrones visuales de alto impacto (ojos, zoom, contraste). Clips 2+ llevan frase de continuidad explícita ("Continuing from previous clip..."). | 5 pts |
+| **P2 — Física/Renderabilidad** | Detecta acciones de alto riesgo que la IA renderiza mal (correr rápido, luchar, comer, escribir). | 5 pts |
+| **P3 — Cinematografía** | Verifica presencia de keywords de dirección premium: rim light, cinematic, dutch angle, slow-motion, 4K, photorealistic, subsurface scattering. | 5 pts |
+| **P4 — Blindaje Anti-Texto** | Verifica que el prompt incluya el sufijo de protección: `[CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY]`. | 5 pts |
+| **P5 — Economía de Tokens** | Longitud óptima por clip: 120-300 chars. <80: genérico. >450: agota cuota API (riesgo 429). | 5 pts |
+| **P6 — Potencial Viral Facebook** | Evaluado 1 vez por video (no por clip): Curiosity Gap + respaldo científico + emoción + CTA Meta-aprobado + hashtags 3-8 + sin clichés visuales quemados. | 5 pts |
+
+#### Umbrales de Veredicto
+
+| Puntuación | Veredicto | Acción |
+|---|---|---|
+| ≥ 23/30 | ✅ APROBADO | Enviar directo a Flow AI / Luma. |
+| 16-22/30 | ⚠️ REVISIÓN | Guardar con `requires_review: true`, revisar manualmente. |
+| < 16/30 | ❌ RECHAZADO | Regenerar con Gemini. No producir. |
+
+#### Archivos que audita (solo lectura)
+- `videos_content.json` — Videos fotorrealistas (5 clips)
+- `videos_content_v2.json` — Videos fotorrealistas v2 QA-Approved
+- `video_moda_cartoon.json` — Cartoon Hero / Lumina (4 clips)
+- `seedboy_content.json` — Concurso Seedboy (3 escenas), si existe
+
+---
+
+### 🧠 BASE DE CONOCIMIENTO DEL AGENTE (Pilar 6)
+
+El agente no inventa criterios: usa una **base de conocimiento estática** investigada el 2026-05-17 a partir de:
+
+1. **Patrones de Retención de Facebook Reels 2026 (Meta Analytics)**
+   - Hook visual de alto impacto en los primeros 3 segundos: extreme close-up de ojos, contraste de luz, emoción negativa inicial (problema).
+   - Fórmulas de texto probadas: "Stop doing X", "The #1 mistake", "Did you know", "What if I told you".
+   - Tasa de retención objetivo: 60%+ es bueno, 70%+ es excelente.
+
+2. **Psicología Viral de Contenido Científico (Berger's STEPPS, fMRI studies)**
+   - Social Currency: el dato científico hace que el que lo comparte "parezca que sabe mucho".
+   - Practical Value: datos aplicables inmediatamente (porcentajes, días, estadísticas).
+   - Emotional Arousal: las emociones de alta activación (asombro, alegría) generan más shares que las neutrales.
+   - Identity: compartir contenido que valida experiencias propias (ansiedad, agotamiento) activa la región de identidad del cerebro (medial prefrontal cortex).
+
+3. **Saturación Visual 2025-2026 (Banner Blindness)**
+   - Clichés corporativos quemados: high-fiving teams, handshakes, pointing at graphs, glass offices.
+   - Emociones actuadas/forzadas: "laughing with salad", perfect smiles, overly enthusiastic poses.
+   - Estética genérica de IA: "plastic look", shiny 3D renders, template backgrounds.
+   - "Brag visuals": luxury cars, stacks of money, hustle quotes.
+
+**Nota importante**: Esta base de conocimiento fue investigada en mayo 2026. Para mantenerla actualizada, se debe crear `actualizar_inteligencia.py` que consulte Gemini 1 vez/mes con preguntas sobre tendencias actuales.
+
+---
+
+### 📊 RESULTADOS DE LA PRIMERA AUDITORÍA COMPLETA
+
+| Archivo | Clips | ✅ OK | ⚠️ Revisión | ❌ Rechazado | Veredicto |
+|---|---|---|---|---|---|
+| `videos_content.json` (v1) | 5 | 0 | 1 | 4 | ❌ RECHAZADO (12.6/30) |
+| `videos_content_v2.json` (v2) | 5 | 5 | 0 | 0 | ✅ APROBADO (27.8/30) |
+| `video_moda_cartoon.json` (Lumina) | 4 | 0 | 4 | 0 | ⚠️ REVISIÓN (19.8/30) |
+
+#### Diagnóstico del video v1 "La Ciencia de la Gratitud" (rechazado):
+- Prompts de 500-583 chars (la descripción física completa del personaje se repite en CADA clip).
+- Sin frases de continuidad entre clips (cada clip empieza desde cero).
+- Sin blindaje anti-texto en ninguno de los 5 clips.
+
+#### Correcciones aplicadas en v2:
+- Técnica "Character Anchor": descripción del personaje definida 1 vez en `character_anchor_en`, clips 2-5 solo dicen "same woman" + detalle de la nueva escena.
+- Continuidad explícita en clips 2-5: "Continuing from previous clip —".
+- Anti-texto en los 5 clips: `[CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY]`.
+- Post/Voiceover con: dato de Harvard (25% más felicidad), CTA "Share with someone", 5 hashtags temáticos.
+- Resultado: 27.8/30 promedio. APROBADO para producción.
+
+#### Diagnóstico de Lumina — Cartoon Hero (revisión requerida):
+- P6 Viral: 1/5 — Falta curiosity gap, dato científico, emoción y CTA en el post.
+- P4 Anti-texto: 0/5 en todos los clips — Falta el sufijo de blindaje.
+- **PENDIENTE**: Corregir `video_moda_cartoon.json` y `crear_moda_cartoon.py`.
+
+---
+
+### ⚙️ REGLAS PERMANENTES ESTABLECIDAS EN ESTA SESIÓN
+
+1. **TODO video nuevo debe pasar `auditor_videos.py` antes de enviarse a Flow AI/Luma.** Puntuación mínima para producción: 23/30.
+2. **La descripción del personaje NO se repite en cada clip.** Usar técnica "Character Anchor": definir 1 vez, referenciar brevemente en clips 2+.
+3. **El sufijo anti-texto es OBLIGATORIO en cada clip**: `[CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY]`.
+4. **Los clips 2, 3, 4 y 5 DEBEN empezar con**: "Continuing from previous clip —".
+5. **El post_text y voiceover deben incluir**: al menos 1 dato científico con fuente, 1 elemento emocional, 1 CTA Meta-aprobado, y 3-8 hashtags.
+6. **CTAs prohibidos por Meta** (penalizan alcance): "Like si...", "Comparte si estás de acuerdo", "Comenta SÍ si...". Usar siempre: "Share with someone who needs this", "Comment: what changed your life?", "Tag someone who...".
+
+---
+
+### 📅 PENDIENTES DE ESTA SESIÓN (2026-05-17)
+
+1. **Corregir `video_moda_cartoon.json`**: Añadir anti-texto a los 4 clips y mejorar el P6 viral (curiosity gap, dato científico, CTA).
+2. **Corregir `crear_moda_cartoon.py`**: Integrar las correcciones en el template del prompt para que futuras generaciones de Lumina pasen la auditoría automáticamente.
+3. **Crear `actualizar_inteligencia.py`**: Script mensual que consulta Gemini para refrescar la base de conocimiento del agente con las últimas tendencias de Facebook.
+**COMPLETADO:** Integrar auditor en el flujo de producción: Ejecutar `auditor_videos.py` automáticamente después de cada ejecución de `crear_video_viral.py` y `crear_moda_cartoon.py`.
+
+---
+---
+
+## 🆕 SESIÓN 2026-05-18 — SEGMENTACIÓN DE VOZ Y CIERRE de QA
+
+### 🚀 CAMBIOS IMPLEMENTADOS
+1. **Segmentación de Voiceover (Timestamps)**: 
+   - Implementado sistema de `voiceover_segments` en `videos_content_v2.json`.
+   - Ahora la voz en off está dividida exactamente por clips (0-6s, 6-12s, etc.), facilitando el montaje en Flow AI.
+   - Actualizado `crear_video_viral.py` para persistir este formato automáticamente.
+2. **Verificación de Automatización QA**:
+   - Confirmado que `auditor_videos.py` se ejecuta automáticamente al final de `crear_video_viral.py`.
+
+---
+
+FIN DE BITACORA
+
+---
+---
+
+## 🆕 SESIÓN 2026-05-18 (Noche) — EL MOTOR CINEMATOGRÁFICO UNIVERSAL
+
+### 🚀 CAMBIOS IMPLEMENTADOS
+
+#### A) Guía Maestra (`CINEMATIC_AI_VIDEO_GUIDELINES.md`) — 7 Secciones
+1. **Sec. 1 — Arquitectura del Libreto**: Anatomía del Prompt en 2 bloques (Contexto Maestro + Shot List). Etiquetas obligatorias: `FORMAT`, `SUBJECT`, `WARDROBE`, `ENVIRONMENT`, `MOOD`, `MUSIC`, `COLOR LOGIC`, `STYLE`, `RULES`, `NEGATIVE PROMPT`.
+2. **Sec. 2 — Dinamismo y Cámara**: Planos (Macro, Contrapicado, Picado), Movimientos (Dolly, Handheld, Orbit), Coreografía de Cortes (Shot/Reverse Shot, Match on Action / Montaje Cinético Rápido).
+3. **Sec. 3 — Iluminación**: Triángulo de Oro, Volumetric Fog, Color Grading, Control de Saturación (no abusar de destellos/partículas).
+4. **Sec. 4 — Estabilización**: Character Book (Biblia Visual), Start & End Frame, Modelo Híbrido (imagen primero, video después).
+5. **Sec. 5 — Optimización**: Timeline Prompting con sintaxis estricta (`SHOT X — TIMECODE — PLANO, LENTE, CÁMARA`), Testeo a 480p, Pipeline de 3 Herramientas (Imagen → Co-Director → Video).
+6. **Sec. 6 — Videoclip Musical**: Lipsync de Precisión, CRASH ZOOM en el Beat, Bokeh Arquitectónico, Halo de Contraluz.
+7. **Sec. 7 — Directorio de Estilos**: Ciencia, Psicología, Fantasía/Moda, Marketing/UI, Lifestyle, Thriller, K-Pop.
+
+#### B) Scripts Modificados
+- `crear_video_viral.py`: Nuevo JSON con `global_context_block_en` + sintaxis de tomas estricta.
+- `crear_moda_cartoon.py`: Misma actualización de estructura de prompt.
+- Ambos scripts leen `CINEMATIC_AI_VIDEO_GUIDELINES.md` dinámicamente en cada ejecución.
+
+#### C) Test de Producción
+- Se ejecutó `crear_video_viral.py` con la nueva arquitectura. Gemini generó correctamente el bloque de contexto maestro con MOOD, MUSIC y COLOR LOGIC. Auditoría QA: 100% clips aprobados (15/15).
+
+#### D) Limpieza de Agnosticismo
+- Se eliminaron TODAS las referencias a marcas específicas (ChatGPT, DALL-E, Claude, Gemini, Seedance, Midjourney, Luma, Kling, iPhone). El documento es 100% universal.
+
+#### E) Videos Analizados (Fuentes de Conocimiento)
+1. Video "Stop wasting Credits! Master Seedance 2.0" (Dan Kieft): Timeline Prompting, testeo 480p, secuencia Heist.
+2. Video "Cómo crear un videoclip de Kpop con IA" (Duran Academy): Character Book, Pipeline de 3 herramientas, Lipsync, CRASH ZOOM, Bokeh Arquitectónico.
+
+### ✅ TAREAS PENDIENTES RESUELTAS
+- **COMPLETADO**: "Corregir `crear_moda_cartoon.py`: Integrar las correcciones en el template del prompt".
+- **COMPLETADO**: "Expansión del Directorio de Estilos Visuales" (ahora tiene 7 estilos).
+
+### 📅 PENDIENTE PARA MAÑANA (2026-05-19)
+1. **Revisar el Documento Final**: Leer `CINEMATIC_AI_VIDEO_GUIDELINES.md` completo y validar coherencia de las 7 secciones.
+2. **Revisar JSON Generado**: Validar `videos_content_v2.json` antes de pasar a producción.
+3. **Generar Serie Lumina**: Correr `crear_moda_cartoon.py` para regenerar `video_moda_cartoon.json` bajo las nuevas reglas.
+4. **Crear `actualizar_inteligencia.py`**: Script mensual para refrescar tendencias de Facebook.

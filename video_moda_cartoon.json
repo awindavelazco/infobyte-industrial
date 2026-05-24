@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-18 12:17:56",
+  "format": "5x6s_dynamic_montage",
+  "total_duration_seconds": 30,
+  "clips_per_video": 5,
+  "videos": [
+    {
+      "topic_es": "Moda Futurista - El Vestido de Luz",
+      "video_plan_es": "Plan de montaje dinámico: Hook(Macro) -> Tension(Medium) -> Revelation(Insert) -> Expansion(Wide) -> Impact(Slow-mo)",
+      "character_description_en": "Lumina: Young tech-fashionista, Pixar style, large expressive eyes, glowing cyan fiber-optic hair, athletic build, determined expression.",
+      "clip_1_hook_en": "MACRO CLOSE-UP. Lumina's large expressive eyes, glowing cyan fiber-optic hair, reflect dynamic digital patterns. Dim, practical workshop lighting. Intrigue. Pixar/Disney 3D style, cinematic, 4K. NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY.",
+      "clip_2_tension_en": "MEDIUM SHOT. Lumina, large expressive eyes, glowing cyan fiber-optic hair, struggles with a flickering holographic mannequin. Sparks fly in a tense design studio. Frustration. Pixar/Disney 3D style, cinematic, 4K. NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY.",
+      "clip_3_revelation_en": "INSERT SHOT. Lumina's gloved finger, large expressive eyes implied, presses a glowing gold button. Hopeful light illuminates a high-tech lab. Breakthrough. Pixar/Disney 3D style, cinematic, 4K. NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY.",
+      "clip_4_expansion_en": "WIDE SHOT. Lumina, large expressive eyes, glowing cyan fiber-optic hair, stands as a magnificent swirling holographic dress forms around her. Vibrant golden light fills an open design gallery. Confidence. Pixar/Disney 3D style, cinematic, 4K. NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY.",
+      "clip_5_impact_en": "EPIC SLOW-MOTION CLOSE-UP. Lumina, large expressive eyes, glowing cyan fiber-optic hair, poses gracefully with her radiant light-based masterpiece. Breathtaking ethereal catwalk. Triumph. Pixar/Disney 3D style, cinematic, 4K. NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN VISUAL ONLY.",
+      "voiceover_segments": {
+        "clip_1": "The spark of an idea ignites. A vision of light, unseen, yet deeply felt.",
+        "clip_2": "Every thread resists, every pattern breaks. The future isn't easily woven.",
+        "clip_3": "Then, a whisper of connection. A single press, unlocking the impossible.",
+        "clip_4": "Watch as innovation unfurls. Fabric of pure energy, a dream taking form.",
+        "clip_5": "Transformed, incandescent. She wears the dawn, a masterpiece unveiled."
+      },
+      "post_text_en": "Can light truly become fabric? See the breathtaking transformation that's redefining fashion forever!\n#FuturisticFashion #LightDesign #TechCouture #PixarStyle #InnovationUnveiled",
+      "generated_by": "Gemini (gemini-2.5-flash)",
+      "id": 1
+    }
+  ]
+}

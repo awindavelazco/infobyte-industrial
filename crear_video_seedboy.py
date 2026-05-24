@@ -4,22 +4,31 @@ import urllib.parse
 import time
 import os
 import random
+import sys
 from datetime import datetime
+
+# Fix Windows UTF-8 console encoding
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except:
+    pass
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class SeedboyVideoEngine:
     def __init__(self):
-        # POOL DE LLAVES (Leídas de api_keys.json de forma segura)
+        # POOL DE LLAVES (Leídas de api_keys.json)
         self.api_keys = []
         keys_path = os.path.join(BASE_DIR, "api_keys.json")
         if os.path.exists(keys_path):
             with open(keys_path, "r", encoding="utf-8") as f:
                 self.api_keys = json.load(f).get("video_keys", [])
-        
+
         if not self.api_keys:
             self.api_keys = ["LLAVE_DE_RESPALDO_AQUI"]
         self.current_key_index = 0
+        self.url = "http://localhost:11434/api/generate"
+        self.local_model = "llama3"
 
     def get_active_key(self):
         return self.api_keys[self.current_key_index]
@@ -30,17 +39,19 @@ class SeedboyVideoEngine:
 
     def call_ollama(self, prompt, format_json=True):
         data = {
-            "model": "llama3",
+            "model": self.local_model,
             "prompt": prompt,
-            "stream": False
+            "stream": False,
+            "options": {"temperature": 0.7}
         }
         if format_json: data["format"] = "json"
-        
+
         try:
-            req = urllib.request.Request("http://localhost:11434/api/generate")
-            req.add_header('Content-Type', 'application/json')
-            response = urllib.request.urlopen(req, json.dumps(data).encode('utf-8'))
-            return json.loads(response.read().decode('utf-8'))['response']
+            req = urllib.request.Request(self.url, data=json.dumps(data).encode('utf-8'))
+            req.add_header("Content-Type", "application/json")
+            response = urllib.request.urlopen(req, timeout=300)
+            result = json.loads(response.read().decode('utf-8'))
+            return result['response']
         except Exception as e:
             print(f"[OLLAMA ERROR] {e}")
             return None
@@ -60,10 +71,18 @@ class SeedboyVideoEngine:
                 continue
         return None
 
-    def generate_video_script(self):
-        print("[DIRECTOR] Escribiendo guion y prompts para el concurso de Seedboy...")
-        
-        # Seleccionamos un problema aleatorio para darle variedad a los guiones
+    def generate_video_script(self, visual_style_choice):
+        print(f"\n[DIRECTOR] Escribiendo guion ARTÍSTICO y optimizado para Flow AI...")
+
+        styles_map = {
+            "1": ("Animación 3D Pixar/Dreamworks", "3D Animation, cinematic, Pixar/Dreamworks style, vibrant colors, highly detailed characters, expressive faces, volumetric lighting"),
+            "2": ("Cinemático Realista", "Photorealistic, 8k, cinematic lighting, highly detailed, realistic textures, shot on 35mm anamorphic lens, subsurface scattering"),
+            "3": ("Anime / Studio Ghibli", "Studio Ghibli style, hand-drawn anime, lush landscapes, soft nostalgic lighting, atmospheric depth"),
+            "4": ("Sintético / Sci-Fi Neon", "Cyberpunk style, neon lighting, synthwave aesthetic, futuristic high-tech environment, sharp contrasts, volumetric fog")
+        }
+        style_name, style_prompt = styles_map.get(visual_style_choice, styles_map["1"])
+        print(f"[ESTILO] Aplicando: {style_name}")
+
         problemas = [
             "Demasiada agua (las semillas se ahogan, aparece moho).",
             "Tierra demasiado seca (las semillas tienen sed, se duermen).",
@@ -74,100 +93,132 @@ class SeedboyVideoEngine:
             "Demasiadas semillas amontonadas (pelean por espacio/comida)."
         ]
         problema_elegido = random.choice(problemas)
-        
+
         prompt_instruction = f"""
-        You are an expert Animation Director and AI Prompt Engineer participating in the 'Cartoon Hero x Seedboy AI Animation Contest'.
-        Create a 30-second animation script and prompt sequence based on this specific problem: "{problema_elegido}".
-        
-        IMPORTANT CONTEST RULES & STRUCTURE:
-        The video must be 30 seconds long (exactly 6 scenes of 5 seconds each for AI video generators like Luma/Kling).
-        The story must follow these 5 steps:
-        1. Enganche: A neighbor has a garden problem and complains. Seedboy arrives.
-        2. Investigación: Seedboy uses real science to diagnose it.
-        3. Punto de vista de las semillas: Seeds talk to each other playfully/humorously, revealing the issue.
-        4. Diagnóstico y solución: Seedboy explains the real science solution simply.
-        5. Desenlace: The garden recovers.
-        
-        TONE: Educational but simple. Seeds are playful teammates. Seedboy is a curious, kind teacher. Light humor.
-        
-        STRICT RULES:
-        1. Prompts for AI video (Scenes 1 to 6) MUST be in ENGLISH, highly descriptive, cinematic, 3D animation style (like Pixar/Dreamworks). Mention camera movements.
-        2. Voiceover MUST be in ENGLISH (Seedboy, neighbor, and seeds speaking) and fit within 30 seconds total.
-        3. Explain the plan in SPANISH so the human creator understands the concept.
-        
-        STRUCTURE EXACTLY LIKE THIS JSON:
-        {{ 
-           "topic_es": "Tema del video (Ej: Semillas con demasiada agua)",
-           "video_plan_es": "Explicación breve de la historia y el problema científico a resolver.",
-           "scene_1_prompt_en": "3D Animation, cinematic... (Hook: Neighbor complains, Seedboy arrives)",
-           "scene_2_prompt_en": "3D Animation, macro shot... (Investigation: Seedboy checks the soil)",
-           "scene_3_prompt_en": "3D Animation, close up... (Seed POV: Seeds complaining about the problem humorously)",
-           "scene_4_prompt_en": "3D Animation... (Diagnosis: Seedboy explains the issue)",
-           "scene_5_prompt_en": "3D Animation... (Solution: Applying the fix)",
-           "scene_6_prompt_en": "3D Animation, epic finale... (Ending: Plants growing and thriving)",
-           "voiceover_en": "The exact script to be spoken (Neighbor, Seedboy, Seeds). Max 70 words total.",
-           "post_text_en": "Engaging Facebook/Instagram post caption with emojis and hashtags."
+        You are an expert Animation Director and AI Prompt Engineer for the 'Cartoon Hero x Seedboy AI Animation Contest'.
+        Create a 32-second animation script optimized for Flow AI based on this problem: "{problema_elegido}".
+
+        STRUCTURE (Flow AI):
+        - Total duration: 32 seconds.
+        - Format: 4 clips of 8 seconds each.
+        - TECHNIQUE: CONTINUITY PROMPTING. Each clip must start exactly where the previous one ended.
+
+        ARTISTIC DIRECTIVES:
+        1. EMOTIONAL JOURNEY:
+           - Hook (0-8s): Visually shocking, a "pattern interrupt". High energy.
+           - Investigation (8-16s): Tension and curiosity. Use macro shots to show the "drama" of the seeds.
+           - Solution (16-24s): The "Aha!" moment. Lighting shift from oppressive to hopeful.
+           - Finale (24-32s): Breathtaking resolution. Pure visual satisfaction.
+        2. VISUAL STYLE: {style_prompt}.
+        3. CINEMATIC DETAIL: Use professional terminology: 'volumetric lighting', 'extreme macro', 'depth of field', 'dynamic orbit shot'.
+        4. Language: Prompts and Voiceover MUST be in ENGLISH.
+        5. CONTINUITY: Clips 2, 3, and 4 MUST start with "Continuing from previous clip —" and maintain characters/lighting.
+        6. CAMERA: Include movements like 'slow cinematic zoom', 'macro pan', etc.
+        7. Plan explanation MUST be in SPANISH.
+
+        JSON STRUCTURE:
+        {{
+           "topic_es": "Tema del video",
+           "video_plan_es": "Explicación breve de la historia con enfoque emocional",
+           "scene_1_prompt_en": "Starting scene... {style_prompt}. (The Shock Hook)",
+           "scene_2_prompt_en": "Continuing from previous clip — {style_prompt}. (The Investigation/Tension)",
+           "scene_3_prompt_en": "Continuing from previous clip — {style_prompt}. (The Scientific Solution/Aha!)",
+           "scene_4_prompt_en": "Continuing from previous clip — {style_prompt}. (The Triumphant Ending)",
+           "voiceover_en": "Full script in English (max 80 words), focused on emotion and curiosity.",
+           "post_text_en": "Engaging social media caption with emojis."
         }}
         """
-        
+
+        # JERARQUÍA DE MODELOS (Highest to Lowest)
+        models_to_try = [
+            'gemini-1.5-pro',
+            'gemini-2.0-flash',
+            'gemini-2.5-flash'
+        ]
+
         attempts = 0
         while attempts < len(self.api_keys):
             try:
                 from google import genai
                 from google.genai import types
                 client = genai.Client(api_key=self.get_active_key())
-                
-                response = client.models.generate_content(
-                    model='gemini-2.0-flash',
-                    config=types.GenerateContentConfig(response_mime_type="application/json"),
-                    contents=prompt_instruction
-                )
-                
-                result = json.loads(response.text)
-                if result and result.get('scene_1_prompt_en'):
-                    print(f"[DIRECTOR] OK con llave #{self.current_key_index + 1}")
-                    result["generated_by"] = "Gemini (Cloud)"
-                    return result
+
+                for model_name in models_to_try:
+                    try:
+                        response = client.models.generate_content(
+                            model=model_name,
+                            config=types.GenerateContentConfig(response_mime_type="application/json"),
+                            contents=prompt_instruction
+                        )
+                        result = json.loads(response.text)
+                        if result and result.get('scene_1_prompt_en'):
+                            print(f"[DIRECTOR] OK con {model_name} (Llave #{self.current_key_index + 1})")
+                            result["generated_by"] = f"Gemini ({model_name})"
+                            return result
+                    except Exception as inner_e:
+                        if "429" in str(inner_e) or "RESOURCE_EXHAUSTED" in str(inner_e):
+                            continue # Try next model in the list
+                        print(f"[SISTEMA] Error con {model_name}: {inner_e}")
+
+                print(f"[SISTEMA] Todas las modelos agotadas en Llave #{self.current_key_index + 1}. Rotando...")
+                self.rotate_key()
+                attempts += 1
             except Exception as e:
-                wait_time = 2 ** attempts
-                print(f"[DIRECTOR] Advertencia: Fallo con llave #{self.current_key_index + 1}: {e}")
-                print(f"[SISTEMA] Reintentando en {wait_time}s...")
-                time.sleep(wait_time)
+                print(f"[SISTEMA] Fallo general con llave #{self.current_key_index + 1}: {e}")
                 self.rotate_key()
                 attempts += 1
 
-        print("[DIRECTOR] Activando Pensamiento Local (Ollama)...")
+        print("[SISTEMA] Activando Pensamiento Local (Ollama) por saturación total de cuotas...")
         res = self.call_ollama(prompt_instruction)
         result = self.extract_json(res)
         if result: result["generated_by"] = "Ollama (Local)"
         return result
 
 def main():
+    print("\n==================================================")
+    print("   🎬 SEEDBOY VIDEO ENGINE - FLOW AI EDITION 🎬")
+    print("==================================================")
+
+    print("\nSelecciona el ESTILO VISUAL para los videos:")
+    print("1. Animación 3D Pixar/Dreamworks")
+    print("2. Cinemático Realista (Photorealistic)")
+    print("3. Anime / Studio Ghibli")
+    print("4. Sintético / Sci-Fi Neon")
+
+    choice = input("\nElige una opción (1-4): ").strip()
+    if choice not in ["1", "2", "3", "4"]:
+        print("[SISTEMA] Opción inválida. Usando estilo 3D por defecto.")
+        choice = "1"
+
     engine = SeedboyVideoEngine()
     final_data = []
-    
-    # Generaremos 2 videos para tener diferentes opciones para el concurso
-    count = 2
-    
+
+    count = 2 # Generamos 2 opciones
     for i in range(count):
-        print(f"\nGenerando Guion Seedboy {i+1} de {count}...")
-        v = engine.generate_video_script()
-        if not v: 
+        print(f"\nGenerando Video {i+1} de {count}...")
+        v = engine.generate_video_script(choice)
+        if not v:
             print("[ERROR] No se pudo generar el guion.")
             continue
-        
+
         v['id'] = i + 1
         final_data.append(v)
-        time.sleep(2) # Pausa por Rate Limits
-        
-    output_path = os.path.join(BASE_DIR, "seedboy_content.json")
-    
+        time.sleep(2)
+
+    # SALIDA SINCRONIZADA CON DASHBOARD
+    output_path = os.path.join(BASE_DIR, "videos_content.json")
+
     if len(final_data) > 0:
         with open(output_path, "w", encoding="utf-8") as f:
-            json.dump({"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "videos": final_data}, f, indent=2, ensure_ascii=False)
+            json.dump({
+                "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "format": "flow_ai_4x8s",
+                "videos": final_data
+            }, f, indent=2, ensure_ascii=False)
         print(f"\n[ÉXITO] Archivo {output_path} creado con {len(final_data)} guiones.")
+        print(f"[TIPS] Copia los prompts en Flow AI respetando la continuidad.")
     else:
-        print("\n[FALLO] No se generó data válida. El archivo no se ha sobrescrito.")
+        print("\n[FALLO] No se generó data válida.")
 
 if __name__ == "__main__":
     main()

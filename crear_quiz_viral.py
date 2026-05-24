@@ -6,15 +6,15 @@ from datetime import datetime
 
 class QuizEngine:
     def __init__(self):
-        # POOL DE 6 LLAVES REALES (Sincronizado con Engine Principal)
-        self.api_keys = [
-            "AIzaSyAq982rk4PvL9q243K2YW_ZhP_xPMtCItA",
-            "AIzaSyCc3NuyF1T7x-Nz0b-1m_97dmK6tUWaWcA",
-            "AIzaSyBgjWfq7gHd0PA2sciACVxL4TLqLPiDdcc",
-            "AIzaSyD26wgoSSdeu-Z2DYBRX9iHPUe7e1O4zB0",
-            "AIzaSyBNxZIit7s6tu8MRkvtuANPxGb1O0fk9c8",
-            "AIzaSyDJcSqd44cIIiz-oqr3wIMmW6bazwcfhOM"
-        ]
+        # POOL DE LLAVES (Leídas de api_keys.json de forma segura)
+        self.api_keys = []
+        keys_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "api_keys.json")
+        if os.path.exists(keys_path):
+            with open(keys_path, "r", encoding="utf-8") as f:
+                self.api_keys = json.load(f).get("news_keys", [])
+        
+        if not self.api_keys:
+            self.api_keys = ["LLAVE_DE_RESPALDO_AQUI"]
         self.current_key_index = 0
         self.ollama_url = "http://localhost:11434/api/generate"
         self.output_file = "quizzes_content.json"

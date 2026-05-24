@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-19 18:07:50",
+  "format": "5x6s_dynamic_montage",
+  "total_duration_seconds": 30,
+  "clips_per_video": 5,
+  "videos": [
+    {
+      "topic_es": "La Regla de los 90 Segundos (una emocion solo dura 90 segundos en tu cuerpo, despues tu decides si la alimentas)",
+      "video_plan_es": "Plan de montaje dinámico: Hook(Macro) -> Tension(Medium) -> Revelation(Insert) -> Expansion(Wide) -> Impact(Slow-mo)",
+      "global_context_block_en": "FORMAT: 30s / 5 SHOTS / 'The 90-Second Rule' psychological transformation. SUBJECT: A young woman, early 30s, mixed ethnicity, expressive brown eyes, medium length dark wavy hair. WARDROBE: Evolves: C1: Overworn hoodie, sweatpants. C2: Disheveled office attire. C3: Casual smart shirt, jeans. C4: Flowy linen dress. C5: Elegant silk gown. ENVIRONMENT: Evolves: C1: Cluttered, dim apartment. C2: Tense, grey office cubicle. C3: Minimalist, sunlit studio apartment. C4: Expansive, calm rooftop garden. C5: Serene, misty mountain lake shore. MOOD: Initial despair and frustration, transitioning to struggle, then breakthrough, confidence, and finally profound peace. MUSIC: Starts with low, dissonant drone, slowly transitioning to a hopeful piano melody, then uplifting orchestral swells, ending with serene, ambient strings. COLOR LOGIC: C1: Desaturated blues, muted grays. C2: Overcast natural light, cool tones. C3: Soft, warm, diffused light. C4: Vibrant golden hour, rich greens. C5: Breathtaking golden hour, ethereal mist, deep blues. RULES: Character physical appearance must remain absolutely consistent across all shots. Clothing, environment, and lighting must evolve as described. Each prompt under 300 characters. No continuity phrases. NEGATIVE PROMPT: \"distorted facial features, extra limbs, bad anatomy, ugly, blurry, low-resolution, artifacts, text, logos, amateurish, cartoon, CGI, plastic, low detail, too much saturation, generic AI look, digital zoom, slow pan, cheesy effects.\"",
+      "clip_1_hook_en": "SHOT 1 — 0:00-0:06 — MACRO, 85mm, locked. A young woman's tear-filled, expressive brown eyes, a single tear tracing a path. Overworn hoodie. Dim, cluttered apartment. Cold, stark side-lighting.",
+      "clip_2_tension_en": "SHOT 2 — 0:06-0:12 — MS, 50mm, handheld tracking. She stares intensely at a complex screen, shoulders slumped in a disheveled office. Grey cubicle. Overcast, cool natural light.",
+      "clip_3_revelation_en": "SHOT 3 — 0:12-0:18 — INSERT, 100mm, dolly push-in. Her fingers gently touch her temple, a subtle shift in her expressive brown eyes. Minimalist sunlit studio. Soft, hopeful diffused light.",
+      "clip_4_expansion_en": "SHOT 4 — 0:18-0:24 — WS, 24mm, orbit shot. She takes a deep, confident breath, arms outstretched, owning the moment in a flowy linen dress. Vast rooftop garden. Vibrant golden hour.",
+      "clip_5_impact_en": "SHOT 5 — 0:24-0:30 — EPIC SLOW-MOTION CLOSE-UP, 200mm, slow pull-back reveal. A serene, confident smile graces her expressive brown eyes, wind gently flowing her elegant silk gown. Misty mountain lake. Golden hour backlight.",
+      "voiceover_segments": {
+        "clip_1": "That knot in your stomach? That crushing wave? It feels endless, consuming every thought, every moment.",
+        "clip_2": "Stuck in the chaos, battling shadows you can't quite grasp. The pressure mounts, relentless, isolating.",
+        "clip_3": "But what if the storm inside only lasts seconds? A fleeting surge, then it's gone.",
+        "clip_4": "Your power begins when the surge ends. Choose freedom. Breathe deeply. Let it simply pass.",
+        "clip_5": "Ninety seconds. That's your window. Embrace the calm beyond the storm. Find your peace."
+      },
+      "post_text_en": "What if you could control your most intense feelings? This hidden rule will change everything. Unlock the secret to emotional mastery. Discover 'La Regla de los 90 Segundos' and reclaim your inner peace. Stop feeding the storm. #90SecondRule #EmotionalIntelligence #Mindfulness #SelfMastery #InnerPeace",
+      "generated_by": "Gemini (gemini-2.5-flash)",
+      "id": 1
+    }
+  ]
+}

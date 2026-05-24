@@ -10,9 +10,17 @@ let activeIndex = -1;
 async function loadData() {
     try {
         const newsResponse = await fetch('posts_content.json?t=' + Date.now());
+        const lastModified = newsResponse.headers.get('Last-Modified');
         const newsJson = await newsResponse.json();
         newsData = newsJson.posts || [];
-        const generatedAt = newsJson.generated_at || 'Fecha no disponible';
+        
+        let generatedAt = newsJson.generated_at;
+        if (!generatedAt && lastModified) {
+            generatedAt = new Date(lastModified).toLocaleString();
+        } else if (!generatedAt) {
+            generatedAt = 'Fecha no disponible';
+        }
+        
         document.getElementById('timestamp').innerText = `Ultima generacion: ${generatedAt} | ${newsData.length} noticias`;
     } catch (e) {
         console.warn("No se pudo cargar posts_content.json:", e);
@@ -36,7 +44,7 @@ async function loadData() {
     }
 
     try {
-        const videosResponse = await fetch('videos_content.json?t=' + Date.now());
+        const videosResponse = await fetch('videos_content_v2.json?t=' + Date.now());
         const videosJson = await videosResponse.json();
         videosData = videosJson.videos || [];
     } catch (e) {
@@ -57,6 +65,9 @@ function renderContent() {
     else if (currentView === 'phrases') data = phrasesData;
     else if (currentView === 'quizzes') data = quizzesData;
     else if (currentView === 'videos') data = videosData;
+
+    // Fix #4 Pendiente: Excluir contenido de Ollama (basura/emergencia)
+    data = data.filter(item => item.generated_by !== "Ollama (Local)");
 
     data.forEach((item, index) => {
         const card = document.createElement('div');
@@ -98,7 +109,7 @@ function renderContent() {
             card.innerHTML = `
                 <div class="category-tag">#${displayId} | VIDEO SCRIPT</div>
                 <h3 class="card-title">${item.topic_es || 'Video'}</h3>
-                <p style="font-size: 0.8em; color: #aaa; margin-bottom: 10px;">Continuidad 4 Clips (32s)</p>
+                <p style="font-size: 0.8em; color: #aaa; margin-bottom: 10px;">Montaje Dinámico 5 Clips (30s)</p>
                 <div class="btn-group">
                     <button class="btn btn-read" onclick="openModal(${index})">📖 Leer Plan (ES/EN)</button>
                     <button class="btn btn-copy-en" onclick="copyVideoVoiceover(${index})" style="background: #e91e63;">🎤 Copiar Voz (EN)</button>
@@ -156,13 +167,23 @@ function openModal(index) {
 
         bodyHTML += `<div style="background:#1a1a2e; border-left:3px solid #e91e63; padding:15px; border-radius:4px; margin-bottom:15px;">`;
         bodyHTML += `<small style="color:#e91e63; font-weight:bold; display:block; margin-bottom:5px;">🎤 VOICEOVER (EN)</small>`;
-        bodyHTML += `<span style="color:#ccc;">${item.voiceover_en || ''}</span></div>`;
 
-        bodyHTML += `<div style="display:flex; gap:10px; margin-bottom:15px;">`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 1 (0-8s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_1_hook_en || item.scene_1_prompt_en || ''}</span></div>`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 2 (8-16s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_2_tension_en || item.scene_2_prompt_en || ''}</span></div>`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 3 (16-24s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_3_revelation_en || item.scene_3_prompt_en || ''}</span></div>`;
-        bodyHTML += `<div style="flex:1; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 4 (24-32s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_4_impact_en || item.scene_4_prompt_en || ''}</span></div>`;
+        let voText = "";
+        if (item.voiceover_segments) {
+            voText = Object.entries(item.voiceover_segments)
+                .map(([key, text]) => `<div style="margin-bottom:5px;"><small style="color:#888;">${key.replace('_', ' ')}:</small> ${text}</div>`)
+                .join('');
+        } else {
+            voText = `<span style="color:#ccc;">${item.voiceover_en || ''}</span>`;
+        }
+        bodyHTML += `<div style="color:#ccc;">${voText}</div></div>`;
+
+        bodyHTML += `<div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:15px;">`;
+        bodyHTML += `<div style="flex:1; min-width:120px; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 1 (0-6s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_1_hook_en || item.scene_1_prompt_en || ''}</span></div>`;
+        bodyHTML += `<div style="flex:1; min-width:120px; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 2 (6-12s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_2_tension_en || item.scene_2_prompt_en || ''}</span></div>`;
+        bodyHTML += `<div style="flex:1; min-width:120px; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 3 (12-18s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_3_revelation_en || item.scene_3_prompt_en || ''}</span></div>`;
+        bodyHTML += `<div style="flex:1; min-width:120px; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 4 (18-24s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_4_expansion_en || item.scene_4_prompt_en || ''}</span></div>`;
+        bodyHTML += `<div style="flex:1; min-width:120px; background:#111; padding:10px; border-radius:4px; border:1px solid #333;"><small style="color:#ffeb3b; display:block; margin-bottom:5px;">🎬 Clip 5 (24-30s)</small><span style="font-size:0.85em; color:#aaa;">${item.clip_5_impact_en || item.scene_5_prompt_en || ''}</span></div>`;
         bodyHTML += `</div>`;
 
         bodyHTML += `<div style="background:#1a1a2e; border-left:3px solid #2e7d32; padding:15px; border-radius:4px;">`;
@@ -249,15 +270,23 @@ function copyPhrasePrompt(index) { navigator.clipboard.writeText(phrasesData[ind
 
 function copyVideoVoiceover(index) {
     const item = videosData[index];
-    navigator.clipboard.writeText(item.voiceover_en || '');
-    showHtoast("🎤 Voz en off copiada!");
+    let voText = "";
+    if (item.voiceover_segments) {
+        voText = Object.entries(item.voiceover_segments)
+            .map(([key, text]) => `${key.replace('_', ' ')}: ${text}`)
+            .join('\\n');
+    } else {
+        voText = item.voiceover_en || '';
+    }
+    navigator.clipboard.writeText(voText);
+    showToast("🎤 Voz en off segmentada copiada!");
 }
 
 function copyVideoPrompts(index) {
     const item = videosData[index];
-    const prompts = `Clip 1 (0-8s): ${item.clip_1_hook_en || item.scene_1_prompt_en || ''}\n\nClip 2 (8-16s): ${item.clip_2_tension_en || item.scene_2_prompt_en || ''}\n\nClip 3 (16-24s): ${item.clip_3_revelation_en || item.scene_3_prompt_en || ''}\n\nClip 4 (24-32s): ${item.clip_4_impact_en || item.scene_4_prompt_en || ''}`;
+    const prompts = `Clip 1 (0-6s): ${item.clip_1_hook_en || item.scene_1_prompt_en || ''}\n\nClip 2 (6-12s): ${item.clip_2_tension_en || item.scene_2_prompt_en || ''}\n\nClip 3 (12-18s): ${item.clip_3_revelation_en || item.scene_3_prompt_en || ''}\n\nClip 4 (18-24s): ${item.clip_4_expansion_en || item.scene_4_prompt_en || ''}\n\nClip 5 (24-30s): ${item.clip_5_impact_en || item.scene_5_prompt_en || ''}`;
     navigator.clipboard.writeText(prompts);
-    showToast("🎬 4 Prompts copiados para Flow AI!");
+    showToast("🎬 5 Prompts copiados para Flow AI!");
 }
 
 function showToast(msg) {

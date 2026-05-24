@@ -1,18 +1,19 @@
 import json
-import os
-import random
 import urllib.request
 import urllib.parse
 import re
-import sys
+import random
 import time
+import os
 from datetime import datetime
 from google import genai
 from google.genai import types
 
 # Configurar consola para evitar errores de codificación en Windows
 try:
-    sys.stdout.reconfigure(encoding='utf-8')
+    import sys
+    if sys.stdout.encoding != 'utf-8':
+        sys.stdout.reconfigure(encoding='utf-8')
 except:
     pass
 
@@ -24,15 +25,15 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class InfobyteEngine:
     def __init__(self):
-        # POOL DE LLAVES (Agrega aquí todas tus llaves de diferentes cuentas de Google)
-        self.api_keys = [
-            "AIzaSyAq982rk4PvL9q243K2YW_ZhP_xPMtCItA",
-            "AIzaSyCc3NuyF1T7x-Nz0b-1m_97dmK6tUWaWcA",
-            "AIzaSyBgjWfq7gHd0PA2sciACVxL4TLqLPiDdcc",
-            "AIzaSyD26wgoSSdeu-Z2DYBRX9iHPUe7e1O4zB0",
-            "AIzaSyBNxZIit7s6tu8MRkvtuANPxGb1O0fk9c8",
-            "AIzaSyDJcSqd44cIIiz-oqr3wIMmW6bazwcfhOM"
-        ]
+        # POOL DE LLAVES (Leídas de api_keys.json de forma segura)
+        self.api_keys = []
+        keys_path = os.path.join(BASE_DIR, "api_keys.json")
+        if os.path.exists(keys_path):
+            with open(keys_path, "r", encoding="utf-8") as f:
+                self.api_keys = json.load(f).get("news_keys", [])
+
+        if not self.api_keys:
+            self.api_keys = ["LLAVE_DE_RESPALDO_AQUI"]
         self.current_key_index = 0
         self.url = "http://localhost:11434/api/generate"
         self.model = "llama3"
@@ -72,12 +73,10 @@ class InfobyteEngine:
         if not text:
             return None
         import re
-        # Intentar parsear directamente
         try:
             return json.loads(text)
         except:
             pass
-        # Buscar el bloque JSON más grande dentro del texto
         matches = re.findall(r'\{.*?\}', text, re.DOTALL)
         for match in sorted(matches, key=len, reverse=True):
             try:
@@ -96,7 +95,7 @@ class InfobyteEngine:
         }
         if format_json:
             data["format"] = "json"
-            
+
         req = urllib.request.Request(self.url, data=json.dumps(data).encode('utf-8'))
         req.add_header("Content-Type", "application/json")
         try:
@@ -113,60 +112,48 @@ class InfobyteEngine:
         print(f"[SCOUT] Buscando tema único en: {category}...")
         prompt_instruction = f"""
         Actúa como un Scout de Noticias Virales. Tu objetivo es encontrar un tema fascinante y poco común en: {category}.
-        
+
         TEMAS YA PUBLICADOS (PROHIBIDO REPETIR):
         {historico_txt}
-        
+
         Instrucciones:
         1. El tema debe ser real y científico/tecnológico.
         2. NO repitas temas de la lista. Busca algo FRESCO.
         3. Devuelve un JSON: {{ "title": "título corto en inglés", "topic": "breve descripción" }}
         """
-        
+
         attempts = 0
-        models_to_try = ['gemini-2.0-flash', 'gemini-2.5-flash']
-        
         while attempts < len(self.api_keys):
             try:
                 client = genai.Client(api_key=self.get_active_key())
-                for model_name in models_to_try:
-                    try:
-                        response = client.models.generate_content(
-                            model=model_name,
-                            config=types.GenerateContentConfig(response_mime_type="application/json"),
-                            contents=prompt_instruction
-                        )
-                        result = json.loads(response.text)
-                        if result and result.get('title'):
-                            print(f"[SCOUT] OK con {model_name} (Llave #{self.current_key_index + 1})")
-                            return result
-                    except Exception as inner_e:
-                        if "429" in str(inner_e) or "RESOURCE_EXHAUSTED" in str(inner_e): 
-                            continue
-                        print(f"[SCOUT] Error con {model_name}: {inner_e}")
-                
-                # Si fallaron todos los modelos con la llave actual, rotamos
-                print(f"[SCOUT] Llave #{self.current_key_index + 1} agotada. Rotando...")
-                self.rotate_key()
-                attempts += 1
-                
+                response = client.models.generate_content(
+                    model='gemini-2.5-flash',
+                    config=types.GenerateContentConfig(response_mime_type="application/json"),
+                    contents=prompt_instruction
+                )
+                result = json.loads(response.text)
+                if result and result.get('title'):
+                    print(f"[SCOUT] OK con gemini-2.5-flash (Llave #{self.current_key_index + 1})")
+                    return result
             except Exception as e:
-                wait_time = 2 ** attempts
-                print(f"[SCOUT] Advertencia: Fallo general con llave #{self.current_key_index + 1}: {e}")
-                print(f"[SISTEMA] Reintentando en {wait_time}s...")
-                time.sleep(wait_time)
-                self.rotate_key()
-                attempts += 1
+                if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                    print(f"[SCOUT] Llave #{self.current_key_index + 1} agotada. Rotando INMEDIATAMENTE...")
+                    self.rotate_key()
+                    attempts += 1
+                else:
+                    print(f"[SCOUT] Error con llave #{self.current_key_index + 1}: {e}")
+                    self.rotate_key()
+                    attempts += 1
 
         print("[SCOUT] Activando Scout Local (Ollama) por saturación de cuota...")
         response = self.call_ollama(prompt_instruction)
         result = self.extract_json(response)
         return result if result else {"title": f"New Discovery in {category}", "topic": category}
 
-    # AGENTE 2: COPYWRITER (Viral Master — Powered by Gemini)
+    # AGENTE 2: COPYWRITER
     def agent_copywriter(self, scout_data, category):
         print(f"[COPYWRITER] Redactando con estilo VIRAL: {scout_data['title']}")
-        
+
         prompt_instruction = f"""
         You are the Chief Editor of INFOBYTE — a viral science magazine for the US market.
         Write a COMPLETE bilingual Facebook post about:
@@ -193,15 +180,15 @@ class InfobyteEngine:
            'Mind-Blowing News', 'Discover More', or placeholder text like 'MAX 12 WORDS'.
            Example for 'Neuroplasticity': "Your Brain Can Rewire Itself. Here's How."
 
-        4. HOOK DIVERSITY (STRICT): PROHIBITED to start multiple posts with the same phrase 
-           (e.g., "Ever wondered", "Did you know", "Imagine a world"). 
+        4. HOOK DIVERSITY (STRICT): PROHIBITED to start multiple posts with the same phrase
+           (e.g., "Ever wondered", "Did you know", "Imagine a world").
            Each of the 28 posts MUST have a unique opening style:
            - Style A: Interrogative (Question)
            - Style B: Breaking News (Urgent update)
            - Style C: Fact-based (Astonishing data)
            - Style D: Narrative (Short story/scenario)
-           
-        5. SPANISH VARIETY: PROHIBIDO empezar con "¿Alguna vez te has preguntado...?" en más de 2 
+
+        5. SPANISH VARIETY: PROHIBIDO empezar con "¿Alguna vez te has preguntado...?" en más de 2
            noticias de todo el batch. Si repites ganchos, el Auditor de Calidad rechazará el trabajo.
 
 
@@ -213,34 +200,33 @@ class InfobyteEngine:
           "postES": "Traduccion COMPLETA en español con TODAS las secciones igual de larga que el ingles, hashtags incluidos..."
         }}
         """
-        
+
         attempts = 0
-        models_to_try = ['gemini-2.0-flash', 'gemini-2.5-flash']
-        
         while attempts < len(self.api_keys):
-            client = genai.Client(api_key=self.get_active_key())
-            for model_name in models_to_try:
-                try:
-                    response = client.models.generate_content(
-                        model=model_name,
-                        config=types.GenerateContentConfig(response_mime_type="application/json"),
-                        contents=prompt_instruction
-                    )
-                    result = json.loads(response.text)
-                    if result and result.get('postEN'):
-                        print(f"[COPYWRITER] OK con {model_name} (Llave #{self.current_key_index + 1})")
-                        result["generated_by"] = "Gemini (Cloud)"
-                        return result
-                except Exception as e:
-                    if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e): continue
-                    print(f"[COPYWRITER] Error con {model_name}: {e}")
-            
-            self.rotate_key()
-            attempts += 1
+            try:
+                client = genai.Client(api_key=self.get_active_key())
+                response = client.models.generate_content(
+                    model='gemini-2.5-flash',
+                    config=types.GenerateContentConfig(response_mime_type="application/json"),
+                    contents=prompt_instruction
+                )
+                result = json.loads(response.text)
+                if result and result.get('postEN'):
+                    print(f"[COPYWRITER] OK con gemini-2.5-flash (Llave #{self.current_key_index + 1})")
+                    result["generated_by"] = "Gemini (Cloud)"
+                    result["requires_review"] = False
+                    return result
+            except Exception as e:
+                if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                    print(f"[COPYWRITER] Llave #{self.current_key_index + 1} agotada. Rotando INMEDIATAMENTE...")
+                    self.rotate_key()
+                    attempts += 1
+                else:
+                    print(f"[COPYWRITER] Error con llave #{self.current_key_index + 1}: {e}")
+                    self.rotate_key()
+                    attempts += 1
 
         print("[COPYWRITER] Activando Redactor Local (Ollama) por saturación de cuota...")
-
-        # --- FALLBACK: Ollama (Llama3) ---
         prompt_fallback = f"""
         You are the Chief Editor of INFOBYTE. Write a viral Facebook post about: {scout_data['title']} (Category: {category}).
         MANDATORY SECTIONS:
@@ -262,9 +248,10 @@ class InfobyteEngine:
         result = self.extract_json(response)
         if result:
             result["generated_by"] = "Ollama (Local)"
+            result["requires_review"] = True
             if not result.get('post_title'): result['post_title'] = scout_data['title']
             return result
-            
+
         return {
             "generated_by": "System Fallback",
             "image_text_hook": f"New Discovery: {scout_data.get('title', 'Scientific Update')[:50]}",
@@ -272,99 +259,97 @@ class InfobyteEngine:
             "postES": f"Nuevo descubrimiento en {category}."
         }
 
-
     # AGENTE 3: COMPLIANCE
     def agent_compliance(self, post_content):
         print("[COMPLIANCE] Auditando seguridad...")
         prompt_instruction = f"""
-        Actúa como un Auditor Senior de Políticas de Comunidad de Meta (Facebook). 
+        Actúa como un Auditor Senior de Políticas de Comunidad de Meta (Facebook).
         Tu objetivo es asegurar que este post NO sea baneado ni marcado como spam/sensacionalismo.
-        
+
         REVISA ESTE POST: {post_content['postEN']}
-        
+
         CRITERIOS DE AUDITORÍA:
         1. CLICKBAIT PROHIBIDO: No uses ganchos que engañen o retengan información vital.
         2. SALUD Y BIENESTAR: Prohibido prometer curas milagrosas o dar consejos médicos sin base científica.
         3. LENGUAJE SEGURO: Sin palabras que activen filtros de violencia, odio o discriminación.
         4. ESTILO EDITORIAL: El tono debe ser educativo y profesional, no puramente sensacionalista.
-        
+
         Devuelve un JSON: {{"safe": true/false, "reason": "explicación", "fixed_post": "versión corregida si es necesario"}}
         """
-        
+
         attempts = 0
         while attempts < len(self.api_keys):
             try:
-                from google import genai
-                from google.genai import types
-                
                 client = genai.Client(api_key=self.get_active_key())
                 response = client.models.generate_content(
                     model='gemini-2.5-flash',
                     config=types.GenerateContentConfig(response_mime_type="application/json"),
                     contents=prompt_instruction
                 )
-                
                 result = json.loads(response.text)
                 if result:
-                    print(f"[COMPLIANCE] OK con llave #{self.current_key_index + 1}")
+                    print(f"[COMPLIANCE] OK con gemini-2.5-flash (Llave #{self.current_key_index + 1})")
                     return result
             except Exception as e:
-                wait_time = 2 ** attempts
-                print(f"[COMPLIANCE] Advertencia: Fallo con llave #{self.current_key_index + 1}: {e}")
-                time.sleep(wait_time)
-                self.rotate_key()
-                attempts += 1
-                
+                if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                    self.rotate_key()
+                    attempts += 1
+                else:
+                    print(f"[COMPLIANCE] Error con llave #{self.current_key_index + 1}: {e}")
+                    self.rotate_key()
+                    attempts += 1
+
         print("[COMPLIANCE] Activando Compliance Local (Ollama)...")
         response = self.call_ollama(prompt_instruction)
         result = self.extract_json(response)
         return result if result else {"safe": True, "fixed_post": post_content.get('postEN', '')}
 
-    # AGENTE 4: VISUAL ARTIST — Powered by Gemini 2.0 Flash
+    # AGENTE 4: VISUAL ARTIST
     def agent_visual(self, post_content):
-        print("[VISUAL] Generando prompt PREMIUM con Gemini...")
-        
+        print("[VISUAL] Generando prompt ARTÍSTICO y PSICOLÓGICO con Gemini Pro...")
+
         prompt_instruction = f"""
-        You are an elite AI Image Prompter. Create a highly detailed, cinematic prompt for this scientific news:
+        You are an elite AI Visual Psychologist and Cinematic Director. Your goal is to translate a scientific concept into a powerful visual metaphor that evokes deep emotion.
+
         Title: {post_content.get('title', '')}
         Topic: {post_content.get('topic', '')}
-        
-        CRITICAL RULES:
-        1. NO TEXT, NO LETTERS, NO WORDS, NO TYPOGRAPHY in the image.
-        2. Hyper-realistic, scientific macro photography, surreal biological/tech setting.
-        3. Cinematic dramatic lighting, 8k resolution, unreal engine 5 render style.
-        
-        Return ONLY the prompt string in English. Do not add explanations.
+
+        CRITICAL ARTISTIC RULES:
+        1. VISUAL METAPHORS: Do not be literal. If the topic is 'stress', don't just show a stressed person; show the feeling of stress (e.g., a storm of glass fragments, a tightening spiral of shadows).
+        2. EMOTIONAL ATMOSPHERE: Define the psychological state (Tension, Wonder, Melancholy, Euphoria). Use lighting and color to communicate this (e.g., Chiaroscuro for mystery, volumetric neon for futurism).
+        3. CINEMATIC SPECIFICATIONS: Use professional terms: 'Anamorphic lens', 'extremely shallow depth of field', 'volumetric fog', 'subsurface scattering', 'macro cinematic shot'.
+        4. ABSOLUTELY NO TEXT: No letters, no words, no typography in the image.
+        5. STYLE: Hyper-realistic, 8k, Unreal Engine 5.4 render, breathtaking composition.
+
+        Return ONLY the final prompt string in English. No explanations.
         """
 
         attempts = 0
-        models_to_try = ['gemini-2.0-flash', 'gemini-2.5-flash']
-        
+        models_to_try = ['gemini-1.5-pro', 'gemini-2.5-flash'] # Prioritize Pro for creativity
+
         while attempts < len(self.api_keys):
-            client = genai.Client(api_key=self.get_active_key())
             for model_name in models_to_try:
                 try:
+                    client = genai.Client(api_key=self.get_active_key())
                     response = client.models.generate_content(
                         model=model_name,
                         contents=prompt_instruction
                     )
                     result = response.text.strip()
                     if result:
-                        # Limpieza agresiva del prompt
                         clean_result = re.sub(r'^(Here is|This is|The following).*?prompt[:\\s]*', '', result, flags=re.IGNORECASE | re.DOTALL).strip()
                         clean_result = clean_result.replace('"', '').strip()
                         if clean_result.startswith(':'): clean_result = clean_result[1:].strip()
                         print(f"[VISUAL] OK con {model_name} (Llave #{self.current_key_index + 1})")
                         return clean_result
                 except Exception as e:
-                    if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e): continue
+                    if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                        continue # Try next model
                     print(f"[VISUAL] Error con {model_name}: {e}")
-            
+
             self.rotate_key()
             attempts += 1
-                
+
         print("[VISUAL] Activando Visual Local (Ollama)...")
         response = self.call_ollama(prompt_instruction, format_json=False)
         return response if response else f"A high-end documentary photograph about {post_content.get('title', 'science discovery')}."
-if __name__ == "__main__":
-    main()

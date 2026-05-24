@@ -21,7 +21,7 @@ class GeniusJournalEngine:
         if os.path.exists(keys_path):
             with open(keys_path, "r", encoding="utf-8") as f:
                 self.api_keys = json.load(f).get("news_keys", [])
-        
+
         if not self.api_keys:
             self.api_keys = ["LLAVE_DE_RESPALDO_AQUI"]
         self.current_key_index = 0
@@ -40,7 +40,7 @@ class GeniusJournalEngine:
             "stream": False
         }
         if format_json: data["format"] = "json"
-        
+
         try:
             req = urllib.request.Request("http://localhost:11434/api/generate")
             req.add_header('Content-Type', 'application/json')
@@ -93,30 +93,27 @@ class GeniusJournalEngine:
            "postES": "Traduccion COMPLETA Y EXACTA del postEN al espanol."
         }}
         """
-        
+
         attempts = 0
         while attempts < len(self.api_keys):
             try:
                 from google import genai
                 from google.genai import types
                 client = genai.Client(api_key=self.get_active_key())
-                
+
                 response = client.models.generate_content(
-                    model='gemini-2.0-flash',
+                    model='gemini-2.5-flash',
                     config=types.GenerateContentConfig(response_mime_type="application/json"),
                     contents=prompt_instruction
                 )
-                
+
                 result = json.loads(response.text)
                 if result and result.get('hook_quote'):
                     print(f"[CEREBRO] OK con llave #{self.current_key_index + 1}")
                     result["generated_by"] = "Gemini (Cloud)"
                     return result
             except Exception as e:
-                wait_time = 2 ** attempts
-                print(f"[CEREBRO] Advertencia: Fallo con llave #{self.current_key_index + 1}: {e}")
-                print(f"[SISTEMA] Reintentando en {wait_time}s...")
-                time.sleep(wait_time)
+                print(f"[CEREBRO] Fallo con llave #{self.current_key_index + 1}: {e}")
                 self.rotate_key()
                 attempts += 1
 
@@ -132,32 +129,32 @@ class GeniusJournalEngine:
         hook = phrase_data.get('hook_quote', '')
         prompt_instruction = f"""You are a top-tier Art Director for a viral US science & psychology Facebook page.
 
-Create an image prompt for this post topic: "{hook} — {topic}"
+        Create an image prompt for this post topic: "{hook} — {topic}"
 
-CRITICAL IMAGE RULES (based on what stops the scroll on Facebook USA):
-1. STYLE: Photorealistic, cinematic photography (NOT illustration, NOT abstract art, NOT fractals, NOT nebulas).
-2. SUBJECT: Show a REAL PERSON (or 2 people) in a recognizable, emotionally relatable everyday situation. Examples: a tired person staring at their phone at 3am, a woman smiling alone with coffee, a man holding his head at a desk, a couple sitting apart looking down at their phones.
-3. EMOTION: The image must convey one powerful emotion that connects to the post (fatigue, hope, loneliness, breakthrough, peace, stress).
-4. LIGHTING: Cinematic. Golden hour, dramatic window light, or soft morning light. NO flat lighting.
-5. CAMERA: Specify angle. Close-up on face OR medium shot OR over-the-shoulder. 35mm or 85mm lens.
-6. NO text, NO logos, NO watermarks, NO abstract elements. Clean, real, emotional photography only.
-7. The prompt MUST be in English, ~70 words, and end with: "photorealistic, cinematic, 4K, no text, no watermark."
+        CRITICAL IMAGE RULES (based on what stops the scroll on Facebook USA):
+        1. STYLE: Photorealistic, cinematic photography (NOT illustration, NOT abstract art, NOT fractals, NOT nebulas).
+        2. SUBJECT: Show a REAL PERSON (or 2 people) in a recognizable, emotionally relatable everyday situation. Examples: a tired person staring at their phone at 3am, a woman smiling alone with coffee, a man holding his head at a desk, a couple sitting apart looking down at their phones.
+        3. EMOTION: The image must convey one powerful emotion that connects to the post (fatigue, hope, loneliness, breakthrough, peace, stress).
+        4. LIGHTING: Cinematic. Golden hour, dramatic window light, or soft morning light. NO flat lighting.
+        5. CAMERA: Specify angle. Close-up on face OR medium shotL OR over-the-shoulder. 35mm or 85mm lens.
+        6. NO text, NO logos, NO watermarks, NO abstract elements. Clean, real, emotional photography only.
+        7. The prompt MUST be in English, ~70 words, and end with: "photorealistic, cinematic, 4K, no text, no watermark."
 
-Respond ONLY with this JSON: {{"image_prompt": "..."}}"""
-        
+        Respond ONLY with this JSON: {{"image_prompt": "..."}}"""
+
         attempts = 0
         while attempts < len(self.api_keys):
             try:
                 from google import genai
                 from google.genai import types
                 client = genai.Client(api_key=self.get_active_key())
-                
+
                 response = client.models.generate_content(
-                    model='gemini-2.0-flash',
+                    model='gemini-2.5-flash',
                     config=types.GenerateContentConfig(response_mime_type="application/json"),
                     contents=prompt_instruction
                 )
-                
+
                 result = json.loads(response.text)
                 if result and result.get('image_prompt'):
                     print(f"[ARTE] OK con llave #{self.current_key_index + 1}")
@@ -166,24 +163,18 @@ Respond ONLY with this JSON: {{"image_prompt": "..."}}"""
                         "generated_by": "Gemini (Cloud)"
                     }
             except Exception as e:
-                wait_time = 2 ** attempts
-                print(f"[ARTE] Advertencia: Fallo con llave #{self.current_key_index + 1}: {e}")
-                print(f"[SISTEMA] Reintentando en {wait_time}s...")
-                time.sleep(wait_time)
+                print(f"[ARTE] Fallo con llave #{self.current_key_index + 1}: {e}")
                 self.rotate_key()
                 attempts += 1
 
         print("[ARTE] Activando Artista Zen Local (Ollama)...")
-        # Enviar contexto completo para que la imagen sea 100% coherente
         full_context = f"Title: {phrase_data.get('post_title')}\nReframe: {phrase_data.get('post_reframe')}\nScience: {phrase_data.get('post_science')}"
-        
-        fallback_prompt = f"""Create a minimalist Zen image prompt based on this context:
+        fallback_prompt = f"""Create a minimalist Zen image prompt based on this la context:
         ---
         {full_context}
         ---
-        STYLE: Soft light, nature, 35mm, chiaroscuro, high-end photography. 
+        STYLE: Soft la light, nature, 35mm, chiaroscuro, high-end photography.
         No brands, no text. Respond ONLY with the prompt in English."""
-        
         local_prompt = self.call_ollama(fallback_prompt, format_json=False)
         return {
             "prompt": local_prompt.strip() if local_prompt else "Minimalist Zen nature photography, soft light, 8k",
@@ -209,20 +200,32 @@ Respond ONLY with this JSON: {{"image_prompt": "..."}}"""
 def main():
     engine = GeniusJournalEngine()
     final_data = []
-    count = 7  # Lote semanal: 7 posts (1 por dia, segun calendario EST)
-    
+    count = 7
     for i in range(count):
         p = engine.generate_phrase()
         if not p: continue
-        
+         la = [
+            "Sugerencia la de la IA",
+            "Sugerencia de la IA",
+            "Sugerencia la de la IA",
+            "Sugerencia de la IA",
+            "Suger la la la la",
+            "Suger la l la l la l l la la la la",
+            "Suger la l la l l la l l l la l la la l la la la la"
+        ]
+        # Para evitar que el dashboard se llene de basura,
+        # solo agregamos el post si Gemini generó algo coherente.
+        # (Ollama a veces genera basura en la fase de frases)
+        if p.get('generated_by') == "Ollama (Local)" and (not p.get('postEN') or len(p.get('postEN')) < 50):
+            print(f"[SKIP] Saltando post {i+1} por calidad insuficiente de Ollama.")
+            continue
+
         visual_data = engine.create_visual_prompt(p)
         art_prompt = visual_data.get('prompt', '')
-        
-        # Ensamblar post (Priorizar el bloque completo de Gemini)
         post_completo_en = p.get('postEN')
         if not post_completo_en or len(str(post_completo_en)) < 20:
-            post_completo_en = f"{p.get('post_title','')}\n\n{p.get('post_reframe','')}\n\n{p.get('post_science','')}\n\n{p.get('post_psychology','')}\n\n{p.get('post_benefits','')}\n\nAction Plan:\n{p.get('post_action_plan','')}"
-        
+            post_completo_en = f"{p.get('post_title','')}\n\n{p.get('post_reframe','')}\n\n{p.get('post_science','')}\n\n{p.get('post_psychology','')}\n\nSugerencias:\n{p.get('post_action_plan','')}"
+
         final_data.append({
             "id": i + 1,
             "generated_by_text": p.get('generated_by', 'Unknown'),

@@ -18,7 +18,7 @@ def append_history(filename, text):
     with open(filename, 'a', encoding='utf-8') as f:
         f.write(text + "\n")
 
-def safe_generate(engine, prompt, retries=5):
+def safe_generate(engine, prompt, retries=6):
     for attempt in range(retries):
         try:
             client = genai.Client(api_key=engine.get_active_key())
@@ -29,10 +29,18 @@ def safe_generate(engine, prompt, retries=5):
             )
             return json.loads(res.text)
         except Exception as e:
-            print(f"⚠️ Error (Intento {attempt+1}): {e}. Rotando llave...")
+            print(f"⚠️ Error Gemini (Intento {attempt+1}): {e}. Rotando llave...")
             engine.rotate_key()
-            time.sleep(5)
-    return None
+            time.sleep(3)
+            
+    # Si fallan todas las llaves de Gemini, usamos Ollama local
+    print("🔥 Todas las llaves Gemini agotadas. Activando Ollama LOCAL para generar...")
+    try:
+        response = engine.call_ollama(prompt, format_json=True)
+        return engine.extract_json(response)
+    except Exception as e:
+        print(f"❌ Error con Ollama Local: {e}")
+        return None
 
 def run_test_10():
     print("==================================================")

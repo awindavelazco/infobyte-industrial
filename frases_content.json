@@ -1,60 +1,75 @@
 {
+  "generated_at": "2026-05-09 15:11:01",
   "phrases": [
     {
       "id": 1,
-      "post_title": "The Silent Language of Nature",
-      "hook_text": "Listen to the silence, it has so much to say.",
-      "postEN": "The forest breathes in silence. Every leaf, every drop of dew, tells a story of patience and resilience. #NatureReflections #InnerPeace #Spirituality",
-      "postES": "El bosque respira en silencio. Cada hoja, cada gota de rocío, cuenta una historia de paciencia y resiliencia. #ReflexionesNaturaleza #PazInterior #Espiritualidad",
-      "visual_prompt": "Cinematic shot of a misty forest at sunrise, soft golden light filtering through ancient trees, hyper-realistic, 8k."
+      "generated_by_text": "Ollama (Local)",
+      "generated_by_visual": "Ollama (Local)",
+      "hook_text": "Your brain is wired to forget most memories every 90 minutes. What's getting lost?\n\n",
+      "postES": "Tu cerebro está programado para olvidar la mayoría de los recuerdos cada 90 minutos. ¿Qué se está perdiendo? 🤯 Sabías que nuestros cerebros tienen un ciclo natural de olvido y recuperación de recuerdos cada 90 minutos, mientras transitamos entre diferentes estados cognitivos? 📊 Es como un laberinto de memoria! 💭 Imagina despertarte cada mañana sin recordar lo que sucedió la noche anterior. ¡Eso es aterrador! 😱 Porque tu cerebro está realmente 'borrando' recuerdos para hacer lugar por nuevos – un proceso que puede ser interrumpido por el estrés, la falta de sueño y otros hábitos diarios. 😴 Para mejorar la recuperación de memoria: ✨ Obtén al menos 7 horas de sueño esta noche ✨ Proba a escribir o meditar antes de dormir ✨ Toma un descanso de 10 minutos cada 90 minutos para estirar y refrescar tu mente 💪 ¿Te sientes como si siempre olvidaras algo importante? 🤔 Dime SÍ o NO abajo! 👇 #SaludCerebro #ShiftDeConciencia #HechosCiencia #LaberintoDeRecuerdos",
+      "postEN": "Your brain is wired to forget most memories every 90 minutes. What's getting lost? 🤯 Did you know that our brains have a natural cycle of forgetting and recalling memories every 90 minutes, as we transition between different cognitive states? 📊 It's like a memory maze! 💭 Imagine waking up each morning with no recollection of what happened the night before. Scary? That's because your brain is actually 'erasing' memories to make room for new ones – a process that can be disrupted by stress, lack of sleep, and other daily habits. 😴 To boost memory recall: ✨ Get at least 7 hours of sleep tonight ✨ Try journaling or meditation before bed ✨ Take a 10-minute break every 90 minutes to stretch and refresh your mind 💪 Do you feel like you're constantly forgetting something important? 🤔 Tell me YES or NO below! 👇 #BrainHealth #MindsetShift #ScienceFacts #MemoryMaze",
+      "prompt": "\"Winding Path of Forgetting\"\n\nA serpentine path vanishes into the trees, shrouded in soft mist. The warm glow of a setting sun casts long shadows, as if memories are slowly fading away, waiting to be rediscovered.",
+      "image_path": ""
     },
     {
       "id": 2,
-      "post_title": "The Art of Letting Go",
-      "hook_text": "Surrender is not defeat; it is the ultimate victory.",
-      "postEN": "Like autumn leaves, we must learn to fall gracefully to make room for new growth. #LettingGo #Healing #Zen",
-      "postES": "Como las hojas de otoño, debemos aprender a caer con gracia para dar paso a un nuevo crecimiento. #Soltar #Sanación #Zen",
-      "visual_prompt": "Abstract art of colorful autumn leaves floating on a calm lake, ripples of water, serene atmosphere, 8k."
+      "generated_by_text": "Ollama (Local)",
+      "generated_by_visual": "Ollama (Local)",
+      "hook_text": "Your brain is deleting memories RIGHT NOW, without you even realizing it.\n\n",
+      "postES": "Tu cerebro está borrando memorias AHORA MISMO, sin que tú ni siquiera lo sepas. Según un estudio publicado por el Instituto Nacional de Salud Mental (NIMH), nuestros cerebros están constantemente eliminando conexiones neuronales innecesarias, lo que puede afectar la memoria y la función cognitiva. Este proceso podría parecer aterrante, pero es en realidad una parte natural del desarrollo cerebral. Sin embargo, cuando estamos estresados o sin dormir, este proceso se salda de control, llevando a una memoria y foco defectuosos. Así que, ¿qué puedes hacer? Consigue al menos 7-8 horas de sueño esta noche. Practica técnicas de reducción del estrés como la meditación o el yoga. Pasa unos minutos cada día reflexionando sobre tus pensamientos y emociones – puede ayudar a reprogramar tu cerebro para una mejor consolidación de memoria. ¿Te sientes constantemente luchando con lapsos de memoria? ¡Dime SI o NO abajo! 🤯 #SaludCerebral #TipsDeMemoria #ImportanciaDelSueño",
+      "postEN": "Your brain is deleting memories RIGHT NOW, without you even realizing it. According to a study published by the National Institute of Mental Health (NIMH), our brains are constantly pruning unnecessary neural connections, which can impact memory and cognitive function. This process might seem scary, but it's actually a natural part of brain development. However, when we're stressed or sleep-deprived, this process can get out of control, leading to impaired memory and focus. So, what can you do? Get at least 7-8 hours of sleep tonight. Practice stress-reducing techniques like meditation or yoga. Take a few minutes each day to reflect on your thoughts and emotions – it can help rewire your brain for better memory consolidation. Do you feel like you're constantly struggling with memory lapses? Tell me YES or NO below! 🤯 #BrainHealth #MemoryTips #SleepMatters",
+      "prompt": "\"Fading Light on Forgotten Petals\"",
+      "image_path": ""
     },
     {
       "id": 3,
-      "post_title": "The Power of Presence",
-      "hook_text": "Don't miss the now by chasing the next.",
-      "postEN": "Peace is not found in the future, but in the breath you are taking right now. #Mindfulness #Presence #DeepPeace",
-      "postES": "La paz no se encuentra en el futuro, sino en el aliento que estás tomando ahora mismo. #Consciencia #Presencia #PazProfunda",
-      "visual_prompt": "Close-up of a Zen stone stack by a flowing river, soft focus background, tranquil lighting, high detail."
+      "generated_by_text": "Ollama (Local)",
+      "generated_by_visual": "Ollama (Local)",
+      "hook_text": "Your brain is secretly hiding memories from you... and it's NOT what you think.\n\n",
+      "postES": "Tu cerebro está secretamente escondiendo memorias de ti... y no es lo que crees. Según un estudio publicado en la revista Neuron, los investigadores de la Universidad de Stanford descubrieron que nuestros cerebros son capaces de 'olvidar' memorias como una forma de protegernos de experiencias dolorosas. Imagina tener el poder de elegir qué memorias quieres mantener y cuáles estás lista para dejar ir. Suena como un superpoder, ¿verdad? Pero aquí hay algo: este proceso está sucediendo en tu cerebro AHORA MISMO, ya sea que lo sepas o no. Así que, ¿qué puedes hacer HOY para tomar el control de tus memorias? Comienza reflejando sobre lo siguiente: ¿Qué memorias te están impidiendo avanzar? ¿Cuáles te hacen sentir feliz y plena? Toma unos minutos para journalizarlos. Luego, comprometete a dejar ir una memoria que ya no está sirviendo. 🤯💭 ¿Tienes una memoria que estás lista para dejar ir? Dime SI o NO abajo! 💬 #HacksDeLaMemoria #CienciaCerebral #AutoDescubrimiento",
+      "postEN": "Your brain is secretly hiding memories from you... and it's NOT what you think. According to a study published in the journal Neuron, researchers at Stanford University discovered that our brains are capable of 'forgetting' memories as a way to protect us from painful experiences. Imagine having the power to choose what memories you want to keep and which ones you're ready to let go. Sounds like a superpower, right? But here's the thing: this process is happening in your brain RIGHT NOW, whether you know it or not. So, what can you do TODAY to take control of your memories? Start by reflecting on the following: What memories are holding you back from moving forward? Which ones make you feel happy and fulfilled? Take a few minutes to journal about them. Then, commit to letting go of one memory that's no longer serving you. 🤯💭 Do you have a memory you're ready to let go of? Tell me YES or NO below! 💬 #MemoryHacks #BrainScience #SelfDiscovery",
+      "prompt": "\"Fading Light on Forgotten Petals\"\n\n(Prompt for a minimalist Zen image)\n\n* Concept: A single, delicate petal (perhaps from a flower or leaf) suspended in mid-air, gently fading into the soft light of dawn/dusk. The surrounding environment is dark and blurred, with only hints of nature's texture.\n* Style: Soft focus, high contrast, minimal color palette.",
+      "image_path": ""
     },
     {
       "id": 4,
-      "post_title": "Resilience of the Soul",
-      "hook_text": "A diamond is just a piece of charcoal that handled stress exceptionally well.",
-      "postEN": "Your struggles are the pressure that creates your light. Keep shining. #Resilience #SoulStrength #Inspiration",
-      "postES": "Tus luchas son la presión que crea tu luz. Sigue brillando. #Resiliencia #FuerzaDelAlma #Inspiración",
-      "visual_prompt": "A single glowing flower growing through a crack in a dark urban concrete wall, cinematic contrast, 8k."
+      "generated_by_text": "Ollama (Local)",
+      "generated_by_visual": "Ollama (Local)",
+      "hook_text": "You're about to forget something... and it's not just a memory\n\n",
+      "postES": "Resumen no disponible.",
+      "postEN": "The Surprising Reason You Forget Things (Even When You Try To Remember)\n\n\n\nAccording to a Stanford University study, the hippocampus - the part of your brain responsible for forming new memories - is designed to delete unnecessary information. But what happens when this process goes awry?\n\nWe've all had those moments where we're trying to recall someone's name or a familiar song, only to have it slip away like sand between our fingers. It's frustrating, but did you know that forgetfulness is often linked to stress and cortisol levels?\n\n\n\nAction Plan:\n",
+      "prompt": "\"Fading Light on Forgotten Leaves\"\n\n(Prompt image: A single, delicate leaf partially covered by mist or fog, with a soft, warm light illuminating only its edges, as if the memory is slowly disappearing.)",
+      "image_path": ""
     },
     {
       "id": 5,
-      "post_title": "The Mirror of the Mind",
-      "hook_text": "The world is a reflection of your inner state.",
-      "postEN": "To change the world outside, first calm the storm inside. #InnerReflection #SelfCare #Balance",
-      "postES": "Para cambiar el mundo exterior, primero calma la tormenta interior. #ReflexiónInterna #Autocuidado #Equilibrio",
-      "visual_prompt": "A perfectly still mountain lake reflecting a starry night sky, deep blues and purples, ethereal atmosphere."
+      "generated_by_text": "Ollama (Local)",
+      "generated_by_visual": "Ollama (Local)",
+      "hook_text": "You're about to lose 1-2 hours of your day today. And you can't get them back.\n\n",
+      "postES": "Resumen no disponible.",
+      "postEN": "The Secret Your Brain is Keeping from You\n\n\n\nAccording to a study published in the Journal of Sleep and Sleep Disorders, the average adult loses around 1.5 hours of sleep each night due to fragmented sleep patterns. This can lead to significant memory impairments.\n\n\n\n\n\nAction Plan:\n",
+      "prompt": "\"A solitary tree stands tall at dusk, its branches stretching towards a veil of misty darkness, as if guarding secrets whispered by the night.\"",
+      "image_path": ""
     },
     {
       "id": 6,
-      "post_title": "The Flow of Life",
-      "hook_text": "Be like water: soft yet capable of moving mountains.",
-      "postEN": "Do not fight the current. Adapt, flow, and find your way around the obstacles. #LifeFlow #Adaptability #Wisdom",
-      "postES": "No luches contra la corriente. Adáptate, fluye y encuentra tu camino rodeando los obstáculos. #Fluir #Adaptabilidad #Sabiduría",
-      "visual_prompt": "Breathtaking waterfall in a tropical jungle, vibrant greens, silky water movement, professional photography."
+      "generated_by_text": "Ollama (Local)",
+      "generated_by_visual": "Ollama (Local)",
+      "hook_text": "Your brain is literally deleting memories right now. And you don't even know it's happening.\n\n",
+      "postES": "Resumen no disponible.",
+      "postEN": "The Memory Thief: How Your Brain Steals Your Past\n\n\n\nA Harvard study found that our brains naturally prune unnecessary neural connections, a process called synaptic pruning.\n\n\n\n\n\nAction Plan:\n",
+      "prompt": "\"Whispers of Forgotten Paths\"\n\nA misty forest trail vanishes into darkness, where a lone sapling stands, its roots tracing the contours of an unseen memory. Soft morning light filters through the canopy above, casting eerie shadows on the mist-shrouded terrain.",
+      "image_path": ""
     },
     {
       "id": 7,
-      "post_title": "Infinite Gratitude",
-      "hook_text": "Gratitude is the bridge to abundance.",
-      "postEN": "When you focus on what you have, the universe gives you more. #Gratitude #Abundance #Blessed",
-      "postES": "Cuando te enfocas en lo que tienes, el universo te da más. #Gratitud #Abundancia #Bendiciones",
-      "visual_prompt": "Hands holding a warm glowing light in the darkness, soft focus, warm heart-centered atmosphere."
+      "generated_by_text": "Ollama (Local)",
+      "generated_by_visual": "Ollama (Local)",
+      "hook_text": "You're about to lose 16 hours of memories... every year!\n\n",
+      "postES": "Vas a perder 16 horas de memorias... cada año! Según un estudio del Instituto Nacional sobre Envejecimiento (NIA), ésta pérdida de memoria es una consecuencia natural del envejecimiento, afectando a más del 50% de los adultos antes de los 60 años. Imagina si pudieras revivir esas memorias y experiencias que hacen que la vida valga la pena. Desafortunadamente, nuestros cerebros están diseñados para borrar gradualmente esas memorias, dejándonos sintiendo desconnectados y perdidos. Aquí te digo qué puedes hacer HOY: Practica mindfulness para reforzar tu retención de memoria, Establece recordatorios para revivir tus memorias (sí, literalmente!), y Prioriza la reflexión sobre ti mismo para aprovechar al máximo tus memorias restantes. ¿Sientes esto también? Dime SI o NO abajo! 😕💭 #SaludCerebral #DespertarDeConciencia #HechosScientíficos #SaludMental #Psicología",
+      "postEN": "You're about to lose 16 hours of memories... every year! According to a study by the National Institute on Aging (NIA), this memory loss is a natural consequence of aging, affecting over 50% of adults by age 60. Imagine if you could relive those memories and experiences that make life worth living. Unfortunately, our brains are designed to gradually erase them, leaving us feeling disconnected and lost. Here's what you can do TODAY: Practice mindfulness to strengthen your memory retention, Set reminders to jog your memory (yes, literally!), and Prioritize self-reflection to make the most of your remaining memories. Do you feel like this too? Tell me YES or NO below! 😕💭 #BrainHealth #MindsetShift #ScienceFacts #MentalHealth #Psychology",
+      "prompt": "\"Forgotten whispers in misty twilight, a leaf's delicate edge worn smooth by time.\"",
+      "image_path": ""
     }
   ]
 }

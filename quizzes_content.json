@@ -89,6 +89,132 @@
       "postEN": "🤖 AI QUIZ! What can humans do that current AI fundamentally cannot? 🧠\n\nA) Play chess at grandmaster level\nB) Generate creative art\nC) Truly understand emotions and consciousness\nD) Write convincing stories\n\n🔬 Science says: C — Current AI simulates understanding but has NO subjective experience. Consciousness, genuine empathy, and self-awareness remain exclusively human — for now.\n\nWhat do YOU think AI will never replace? ⬇️ #AIQuiz #FutureOfAI #HumanVsAI",
       "postES": "🤖 ¡QUIZ DE IA! ¿Qué pueden hacer los humanos que la IA fundamentalmente no puede? 🧠\n\nA) Jugar ajedrez a nivel gran maestro\nB) Generar arte creativo\nC) Comprender verdaderamente las emociones y la consciencia\nD) Escribir historias convincentes\n\n🔬 La ciencia dice: C — La IA actual simula comprensión pero NO tiene experiencia subjetiva. La consciencia, empatía genuina y autoconciencia siguen siendo exclusivamente humanas.\n\n¿Qué crees que la IA NUNCA reemplazará? ⬇️ #QuizIA #FuturoIA #HumanoVsIA",
       "visual_prompt": "Human hand and robotic hand reaching toward each other but not touching, warm human glow vs cold blue AI light, dramatic contrast, cinematic, 8k."
+    },
+    {
+      "id": 11,
+      "topic": "Mind",
+      "headline": "The Visual Blind Spot",
+      "hook_question": "Can you see the hole in your own vision?",
+      "postEN": "👀 VISUAL QUIZ! Did you know you have a blind spot in each eye? 🤯\n\nHow does your brain handle the 'hole' in your vision where the optic nerve connects?\n\nA) It leaves a black dot\nB) It uses the other eye to fill it\nC) It 'guesses' the missing data based on surroundings\nD) Both B and C\n\n🔬 Science says: D — Your brain is a master editor! It uses information from the other eye and visual patterns to 'fill in' the gap so you never notice the void. \n\nMind-bending, right? 💥 #BrainHack #VisualPerception #MindQuiz",
+      "postES": "👀 ¡QUIZ VISUAL! ¿Sabías que tienes un punto ciego en cada ojo? 🤯\n\n¿Cómo maneja tu cerebro el 'hueco' de tu visión donde el nervio óptico se une a la retina?\n\nA) Deja un punto negro\nB) Usa el otro ojo para llenarlo\nC) 'Adivina' los datos faltantes basándose en el entorno\nD) ¡B y C juntos!\n\n🔬 La ciencia dice: D — ¡Tu cerebro es un editor maestro! Usa la información del otro ojo y patrones visuales para 'rellenar' el vacío para que nunca notes el hueco.\n\nSencillamente fascinante, ¿no? 💥 #HackCerebral #PercepciónVisual #QuizMental",
+      "visual_prompt": "Abstract eye anatomy with a glowing optic nerve and a highlighted void spot, cinematic medical art 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 12,
+      "topic": "Mind",
+      "headline": "The Confirmation Bias",
+      "hook_question": "Why do we only believe what proves us right?",
+      "postEN": "🤔 MIND QUIZ! Why is it so hard to change your mind, even with facts? 🧠\n\nWhat is the name of the mental glitch that makes us ignore evidence that contradicts our beliefs?\n\nA) Anchoring Bias\nB) Confirmation Bias\nC) Halo Effect\nD) Availability Heuristic\n\n🔬 Science says: B — Confirmation Bias leads us to search for, favor, and recall information that confirms our pre-existing beliefs, while ignoring everything else. It's why social media bubbles are so strong!\n\nChallenge your beliefs today! 🚀 #PsychologyFacts #Mindset #ConfirmationBias",
+      "postES": "🤔 ¡QUIZ MENTAL! ¿Por qué es tan difícil cambiar de opinión, incluso con hechos? 🧠\n\n¿Cómo se llama el 'glitch' mental que nos hace ignorar la evidencia que contradice nuestras creencias?\n\nA) Sesgo de Anclaje\nB) Sesgo de Confirmación\nC) Efecto Halo\nD) Heurística de Disponibilidad\n\n🔬 La ciencia dice: B — El Sesgo de Confirmación nos lleva a buscar y favorecer la información que confirma lo que ya creemos, ignorando el resto. ¡Es la razón por la que las burbujas de redes sociales son tan fuertes!\n\n¡Desafía tus creencias hoy! 🚀 #HechosPsicológicos #Mentalidad #SesgoDeConfirmación",
+      "visual_prompt": "A person looking at a wall of screens, only one screen is lit up with a green checkmark while others are ignored, cinematic high contrast lighting 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 13,
+      "topic": "Mind",
+      "headline": "The Empathy Gap",
+      "hook_question": "Can you differentiate empathy from sympathy?",
+      "postEN": "❤️ HEART QUIZ! Do you actually know the difference between empathy and sympathy? 🤯\n\nWhich one involves 'feeling WITH' the person instead of 'feeling FOR' them?\n\nA) Sympathy\nB) Empathy\nC) Apathy\nD) Projection\n\n🔬 Science says: B — Sympathy is feeling sorry for someone. Empathy is a deeper neurological process where your brain actually mirrors the other person's emotional state, creating a shared experience.\n\nEmpathy is a superpower! 💪 #EmotionalIntelligence #Empathy #MindQuiz",
+      "postES": "❤️ ¡QUIZ DEL CORAZÓN! ¿Realmente sabes la diferencia entre empatía y simpatía? 🤯\n\n¿Cuál de las dos implica 'sentir CON' la persona en lugar de 'sentir POR' ella?\n\nA) Simpatía\nB) Empatía\nC) Apatía\nD) Proyección\n\n🔬 La ciencia dice: B — La simpatía es sentir lástima por alguien. La empatía es un proceso neurológico profundo donde tu cerebro realmente refleja el estado emocional del otro, creando una experiencia compartida.\n\n¡La empatía es un superpoder! 💪 #InteligenciaEmocional #Empatía #QuizMental",
+      "visual_prompt": "Two ethereal figures interacting, one reflecting the other's emotion as a mirror of iridescent light, the other standing apart, deep cinematic blue tones 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 14,
+      "topic": "Mind",
+      "headline": "The Mandela Effect",
+      "hook_question": "Do you remember things that never happened?",
+      "postEN": "🤯 MEMORY QUIZ! Why do thousands of people remember a detail that is objectively wrong? 🎞️\n\nWhat is this collective false memory phenomenon called?\n\nA) Deja Vu\nB) The Mandela Effect\nC) Cryptomnesia\nD) Confabulation\n\n🔬 Science says: B — The Mandela Effect occurs when a large group of people share a false memory. It's a result of how our brains reconstruct memories and are influenced by social suggestion. Your brain 'fills the gap' with a logical but wrong detail!\n\nHas it happened to you? ⬇️ #MandelaEffect #BrainGlitch #Psychology",
+      "postES": "🤯 ¡QUIZ DE MEMORIA! ¿Por qué miles de personas recuerdan un detalle que es objetivamente incorrecto? 🎞️\n\n¿Cómo se llama este fenómeno de memoria falsa colectiva?\n\nA) Deja Vu\nB) Efecto Mandela\nC) Criptomnesia\nD) Confabulación\n\n🔬 La ciencia dice: B — El Efecto Mandela ocurre cuando un grupo grande de personas comparte un recuerdo falso. Es resultado de cómo el cerebro reconstruye memorias y es influenciado por la sugerencia social. ¡Tu cerebro 'rellena el hueco' con un detalle lógico pero erróneo!\n\n¿Te ha pasado a ti? ⬇️ #EfectoMandela #GlitchCerebral #Psicología",
+      "visual_prompt": "A glitching holographic photograph of a famous landmark where the image is splitting into two different versions, digital artifacts, iridescent colors, 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 15,
+      "topic": "Health",
+      "headline": "The Taste Map Myth",
+      "hook_question": "Is the tongue map you learned in school actually real?",
+      "postEN": "👅 TASTE QUIZ! True or False: Your tongue has specific zones for sweet, salty, sour and bitter? 🍬\n\nWhat is the scientific reality?\n\nA) True — different zones handle different tastes\nB) False — all taste buds can detect all flavors\nC) True, but only in children\nD) False — taste is mostly in the nose\n\n🔬 Science says: B — The 'Tongue Map' is a myth! Taste receptors for all flavors are distributed across the entire tongue. Any part of your tongue can taste any flavor, just with varying sensitivity.\n\nSchool lied to us! 🤣 #HealthMyths #ScienceFacts #TasteQuiz",
+      "postES": "👅 ¡QUIZ DEL GUSTO! ¿Verdad o Falso: Tu lengua tiene zonas específicas para el dulce, salado, ácido y amargo? 🍬\n\n¿Cuál es la realidad científica?\n\nA) Verdadero — diferentes zonas manejan diferentes sabores\nB) Falso — todas las papilas pueden detectar todos los sabores\nC) Verdadero, pero solo en niños\nD) Falso — el gusto está mayormente en la nariz\n\n🔬 La ciencia dice: B — ¡El 'Mapa de la Lengua' es un mito! Los receptores de sabor para todos los sabores están distribuidos por toda la lengua. Cualquier parte de tu lengua puede sentir cualquier sabor.\n\n¡Nos mintieron en la escuela! 🤣 #MitosDeSalud #DatosCientíficos #QuizGusto",
+      "visual_prompt": "A human tongue depicted as a colorful map, but the map is dissolving into a uniform glow of golden light, scientific debunking style, 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 16,
+      "topic": "Health",
+      "headline": "The Hydration Rule",
+      "hook_question": "Is the '2 liters of water a day' rule actually science?",
+      "postEN": "💧 HYDRATION QUIZ! We've all heard: 'Drink 2 liters of water a day'. But is it true for everyone? 🥛\n\nWhat determines how much water you ACTUALLY need?\n\nA) Your height and weight only\nB) The amount of water you drink in tea/coffee\nC) Osmolarity of blood and activity level\nD) The color of your eyes\n\n🔬 Science says: C — There is no universal number. Your need depends on sweat rate, humidity, and blood osmolarity. The best indicator is not a fixed number, but your thirst and urine color!\n\nListen to your body, not the myths! 🌊 #HydrationScience #HealthHacks #WaterQuiz",
+      "postES": "💧 ¡QUIZ DE HIDRATACIÓN! Todos hemos oído: 'Bebe 2 litros de agua al día'. ¿Pero es verdad para todos? 🥛\n\n¿Qué determina cuánta agua necesitas REALMENTE?\n\nA) Solo tu altura y peso\nB) La cantidad de agua que bebes en té/café\nC) La osmolaridad de la sangre y el nivel de actividad\nD) El color de tus ojos\n\n🔬 La ciencia dice: C — No hay un número universal. Tu necesidad depende de la tasa de sudor, la humedad y la osmolaridad sanguínea. ¡El mejor indicador no es un número fijo, sino tu sed y el color de la orina!\n\n¡Escucha a tu cuerpo, no a los mitos! 🌊 #CienciaDeHidratación #HacksDeSalud #QuizAgua",
+      "visual_prompt": "A glass of water reflecting a human cell, the cell shrinking and expanding based on osmotic pressure, ultra-realistic macro shot 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 17,
+      "topic": "Health",
+      "headline": "Oxygen and the Brain",
+      "hook_question": "What happens in the first 10 seconds without oxygen?",
+      "postEN": "🧠 CRITICAL SECONDS! What happens to your brain the moment oxygen stops flowing? ⏱️\n\nHow fast does the brain start to lose function?\n\nA) After 5 minutes\nB) Instantly — neurons stop firing in milliseconds\nC) 10 seconds — loss of consciousness\nD) 30 seconds — permanent damage\n\n🔬 Science says: B & C — Neurons stop firing almost instantly, but the brain has a tiny reserve of ATP that keeps it conscious for about 10-15 seconds. After that, the lights go out. Oxygen is the ultimate fuel!\n\nBreathe deep and stay hydrated! 🌬️ #BrainHealth #OxygenScience #HealthQuiz",
+      "postES": "🧠 ¡SEGUNDOS CRÍTICOS! ¿Qué pasa en tu cerebro en el momento en que deja de fluir el oxígeno? ⏱️\n\n¿Qué tan rápido empieza el cerebro a perder su función?\n\nA) Después de 5 minutos\nB) Instantáneamente — las neuronas dejan de disparar en milisegundos\nC) 10 segundos — pérdida de conciencia\nD) 30 segundos — daño permanente\n\n🔬 La ciencia dice: B & C — Las neuronas dejan de disparar casi instantáneamente, pero el cerebro tiene una pequeña reserva de ATP que lo mantiene consciente unos 10-15 segundos. Después de eso, se apagan las luces. ¡El oxígeno es el combustible definitivo!\n\n¡Respira profundo y mantente hidratado! 🌬️ #SaludCerebral #CienciaDelOxigeno #QuizSalud",
+      "visual_prompt": "A brain turning from a vibrant, glowing neon blue to a dull grey, with a ticking clock floating in the background, dramatic high contrast lighting 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 18,
+      "topic": "Health",
+      "headline": "The Rebel Brain",
+      "hook_question": "Why do teenagers make riskier decisions than adults?",
+      "postEN": "🎧 REBEL BRAIN! Why is the adolescent brain so prone to risk and intensity? 🤯\n\nWhich part of the brain is the LAST to fully mature (around age 25)?\n\nA) The Amygdala (emotions)\nB) The Occipital Lobe (vision)\nC) The Prefrontal Cortex (logic and impulse control)\nD) The Cerebellum (balance)\n\n🔬 Science says: C — The Prefrontal Cortex is the 'CEO' of the brain. Until it's fully wired, the emotional amygdala runs the show, making risk-taking feel more rewarding than logical safety!\n\nBe patient with your teen! 😅 #BrainDevelopment #Adolescence #Neuroscience",
+      "postES": "🎧 ¡EL CEREBRO REBELDE! ¿Por qué el cerebro adolescente es tan propenso al riesgo y la intensidad? 🤯\n\n¿Qué parte del cerebro es la ÚLTIMA en madurar completamente (alrededor de los 25 años)?\n\nA) La Amígdala (emociones)\nB) El Lóbulo Occipital (visión)\nC) La Corteza Prefrontal (lógica y control de impulsos)\nD) El Cerebelo (equilibrio)\n\n🔬 La ciencia dice: C — La Corteza Prefrontal es el 'CEO' del cerebro. Hasta que esté totalmente conectada, la amígdala emocional domina, haciendo que el riesgo se sienta más gratificante que la seguridad lógica!\n\n¡Ten paciencia con tu adolescente! 😅 #DesarrolloCerebral #Adolescencia #Neurociencia",
+      "visual_prompt": "A brain with the prefrontal cortex glowing in a slow-pulsing amber light, while the amygdala is flashing a rapid, intense red, high contrast cinematic 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 19,
+      "topic": "Nature",
+      "headline": "Distributed Intelligence",
+      "hook_question": "Can a tentacle think for itself?",
+      "postEN": "🐙 OCTOPUS MIND! Did you know that an octopus doesn't have just one brain? 🤯\n\nWhere is most of an octopus's 'intelligence' located?\n\nA) All in the central brain\nB) In the eyes\nC) In the tentacles (each has its own mini-brain)\nD) In the skin\n\n🔬 Science says: C — Two-thirds of an octopus's neurons are in its arms! Each tentacle can taste, touch, and make simple decisions without waiting for orders from the central brain.\n\nTruly alien intelligence on Earth! 🌊 #NatureQuiz #OctopusIntelligence #MarineScience",
+      "postES": "🐙 ¡MENTES DISTRIBUIDAS! ¿Sabías que un pulpo no tiene un solo cerebro? 🤯\n\n¿Dónde se encuentra la mayor parte de la 'inteligencia' de un pulpo?\n\nA) Todo en el cerebro central\nB) En los ojos\nC) En los tentáculos (cada uno tiene su propio mini-cerebro)\nD) En la piel\n\n🔬 La ciencia dice: C — ¡Dos tercios de las neuronas de un pulpo están en sus brazos! Cada tentáculo puede saborear, tocar y tomar decisiones simples sin esperar órdenes del cerebro central.\n\n¡Una inteligencia alienígena en la Tierra! 🌊 #QuizNaturaleza #InteligenciaPulpo #CienciaMarina",
+      "visual_prompt": "A bioluminescent octopus in deep water, with each tentacle glowing with a different color of intelligence, ethereal underwater lighting 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 20,
+      "topic": "Nature",
+      "headline": "Biological Immortality",
+      "hook_question": "Is there an animal that can reverse its own age?",
+      "postEN": "🪼 ETERNAL LIFE! Can a creature actually cheat death and return to childhood? 🤯\n\nWhich animal can transform its adult cells back into a juvenile state?\n\nA) Hydra\nB) Turritopsis dohrenii (The Immortal Jellyfish)\nC) Planarian Worm\nD) All of the above\n\n🔬 Science says: D — But the Jellyfish is the most famous! It can revert its entire body back to a polyp state when stressed or old, effectively resetting its life clock to zero.\n\nImagine doing that after a long day! 🤣 #NatureMagic #Immortality #BiologyQuiz",
+      "postES": "🪼 ¡LA VIDA ETERNA! ¿Existe un animal que puede volver a ser bebé? 🤯\n\n¿Qué criatura puede transformar sus células adultas nuevamente en un estado juvenil?\n\nA) Hidra\nB) Turritopsis dohrenii (La Medusa Inmortal)\nC) Gusano Planaria\nD) Todas las anteriores\n\n🔬 La ciencia dice: D — ¡Pero la medusa es la más famosa! Puede revertir todo su cuerpo al estado de pólipo cuando está estresada o vieja, reiniciando efectivamente su reloj de vida a cero.\n\n¡Imagina hacer eso después de un largo día! 🤣 #MagiaNatural #Inmortalidad #QuizBiología",
+      "visual_prompt": "A translucent jellyfish reversing its shape from a complex adult to a simple polyp, shimmering iridescent colors, cinematic 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 21,
+      "topic": "Nature",
+      "headline": "Active Camouflage",
+      "hook_question": "Which animal has the fastest camouflage in the world?",
+      "postEN": "🦎 INSTANT INVISIBLE! Which animal can change its skin color in milliseconds to match its environment? 🤯\n\nIs it just about the color, or something more?\n\nA) Chameleon (Slow and steady)\nB) Cuttlefish (The master of rapid change)\nC) Mimic Octopus\nD) Both B and C\n\n🔬 Science says: D — Cuttlefish and Octopuses use chromatophores (tiny sacs of pigment) and neural control to change color and texture ALMOST instantly, far faster than a chameleon.\n\nNature's own stealth technology! 🌿 #NatureQuiz #Camouflage #WildlifeScience",
+      "postES": "🦎 ¡INVISIBLE AL INSTANTE! ¿Cuál es el animal con el camuflaje más rápido del mundo? 🤯\n\n¿Se trata solo del color, o de algo más?\n\nA) Camaleón (Lento y constante)\nB) Sepia (El maestro del cambio rápido)\nC) Pulpo Mimético\nD) ¡B y C juntos!\n\n🔬 La ciencia dice: D — La sepia y los pulpos usan cromatóforos (pequeños sacos de pigmento) y control neuronal para cambiar color y textura CASI instantáneamente, mucho más rápido que un camaleón.\n\n¡La tecnología furtiva de la naturaleza! 🌿 #QuizNaturaleza #Camuflaje #CienciaAnimal",
+      "visual_prompt": "A chameleon blending perfectly into a crystalline, colorful background, the transition happening in a wave of light, ultra-detailed 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 22,
+      "topic": "Future",
+      "headline": "Light Speed Time",
+      "hook_question": "How much time passes on Earth if you travel at the speed of light?",
+      "postEN": "🚀 FUTURE TRAVEL! What happens to time when you reach the cosmic speed limit? 🤯\n\nIf you spent 1 year traveling at 99% the speed of light, what would happen on Earth?\n\nA) Exactly 1 year passes\nB) a few months pass\nC) Decades or centuries pass\nD) Time stops completely\n\n🔬 Science says: C — This is Time Dilation. The faster you move through space, the slower you move through time. You'd return to an Earth where everyone you knew had aged significantly, while you only aged one year!\n\nThe universe is a time machine! 🌌 #Relativity #TimeTravel #SpaceQuiz",
+      "postES": "🚀 ¡VIAJE AL FUTURO! ¿Qué pasa con el tiempo cuando alcanzas el límite de velocidad cósmico? 🤯\n\nSi pasaras 1 año viajando al 99% de la velocidad de la luz, ¿qué pasaría en la Tierra?\n\nA) Pasa exactamente 1 año\nB) Pasan unos pocos meses\nC) Pasan décadas o siglos\nD) El tiempo se detiene completamente\n\n🔬 La ciencia dice: C — Esto es la Dilatación Temporal. Cuanto más rápido te mueves por el espacio, más lento te mueves en el tiempo. ¡Regresarías a una Tierra donde todos los que conocías han envejecido significativamente, mientras que tú solo envejeciste un año!\n\n¡El universo es una máquina del tiempo! 🌌 #Relatividad #ViajeEnElTiempo #QuizEspacial",
+      "visual_prompt": "A spacecraft stretching into a line of pure white light, with a blurred Earth in the distance appearing to age rapidly, cosmic scale, cinematic 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 23,
+      "topic": "Future",
+      "headline": "Diamond Planets",
+      "hook_question": "Do planets made of carbon and diamond actually exist?",
+      "postEN": "💎 LUXURY WORLDS! Could there be a planet in the galaxy made mostly of diamond? 🤯\n\nWhat is the scientific name for this kind of world?\n\nA) Carbon Planet\nB) Diamond Star\nC) Crystal Sphere\nD) Carbonaceous Chondrite\n\n🔬 Science says: A — 'Carbon Planets' are theoretical worlds where the carbon-to-oxygen ratio is so high that the interior is a massive layer of diamond and graphite. 55 Cancri e is a prime candidate!\n\nSpace is more valuable than we thought! 🌌 #SpaceFacts #DiamondPlanet #AstronomyQuiz",
+      "postES": "💎 ¡MUNDOS DE LUJO! ¿Podría existir un planeta en la galaxia hecho mayormente de diamante? 🤯\n\n¿Cuál es el nombre científico para este tipo de mundo?\n\nA) Planeta de Carbono\nB) Estrella de Diamante\nC) Esfera de Cristal\nD) Condrita Carbonácea\n\n🔬 La ciencia dice: A — Los 'Planetas de Carbono' son mundos teóricos donde la relación carbono-oxígeno es tan alta que el interior es una capa masiva de diamante y grafito. ¡55 Cancri e es un candidato principal!\n\n¡El espacio es más valioso de lo que pensábamos! 🌌 #DatosEspaciales #PlanetaDiamante #QuizAstronomía",
+      "visual_prompt": "A massive, faceted crystalline planet reflecting a distant blue sun, shards of diamond floating in orbit, dazzling light, cinematic 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
+    },
+    {
+      "id": 24,
+      "topic": "Future",
+      "headline": "The Singularity",
+      "hook_question": "When will AI surpass combined human intelligence?",
+      "postEN": "🤖 DAY X! When will the 'Singularity' happen — the moment AI becomes smarter than all humans combined? 🤯\n\nWhat is the most common prediction for this event?\n\nA) It already happened\nB) Between 2029 and 2045\nC) Never, consciousness is required\nD) In the next 5 years\n\n🔬 Science says: B — Ray Kurzweil and other futurists predict the Singularity around 2045, when AI starts recursively improving itself at a rate humans cannot comprehend, leading to an intelligence explosion!\n\nAre we ready for the upgrade? 🚀 #AISingularity #FutureOfMind #TechQuiz",
+      "postES": "🤖 ¡EL DÍA X! ¿Cuándo ocurrirá la 'Singularidad' — el momento en que la IA sea más inteligente que todos los humanos combinados? 🤯\n\n¿Cuál es la predicción más común para este evento?\n\nA) Ya ocurrió\nB) Entre 2029 y 2045\nC) Nunca, se requiere consciencia\nD) En los próximos 5 años\n\n🔬 La ciencia dice: B — Ray Kurzweil y otros futuristas predicen la Singularidad alrededor de 2045, cuando la IA comience a mejorarse a sí misma recursivamente a un ritmo que los humanos no pueden comprender, ¡llevando a una explosión de inteligencia!\n\n¿Estamos listos para la actualización? 🚀 #SingularidadIA #FuturoDeLaMente #QuizTecnológico",
+      "visual_prompt": "A human brain and a quantum processor merging into a single, glowing, complex entity of light and gold, transcendence, cinematic 8k. [CRITICAL: NO TEXT, NO LETTERS, NO TYPOGRAPHY. CLEAN AESTHETIC ONLY]."
     }
   ]
 }
